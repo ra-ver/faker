@@ -11,7 +11,7 @@ Tool for generating Fake JSON data.
 
 ## Introduction
 
-This program uses npm package: [json-schema-faker](https://www.npmjs.com/package/json-schema-faker)
+This program uses npm package: [json-schema-faker](https://www.npmjs.com/package/json-schema-faker) to generate fake json data
 
 * All schemas are stored in [schemas folder](schemas)
 * Samples objects that are used to generate schemas are stored in [sample-objects](sample-objects)
