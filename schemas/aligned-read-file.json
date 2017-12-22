@@ -1,0 +1,82 @@
+{"$schema": "http:\/\/json-schema.org\/draft-04\/schema#",
+  "description": "",
+  "type": "object",
+  "properties": {
+    "read_groups": {
+      "type": "array",
+      "uniqueItems": true,
+      "minItems": 1,
+      "items": {
+        "required": [
+          "id",
+          "submitter_id"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "submitter_id": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "type": {
+      "type": "string",
+      "minLength": 1
+    },
+    "data_type": {
+      "type": "string",
+      "minLength": 1
+    },
+    "file_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "md5sum": {
+      "type": "string",
+      "minLength": 1
+    },
+    "data_format": {
+      "type": "string",
+      "minLength": 1
+    },
+    "submitter_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "data_category": {
+      "type": "string",
+      "minLength": 1
+    },
+    "file_size": {
+      "type": "number"
+    },
+    "state_comment": {
+
+    },
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "experimental_strategy": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "read_groups",
+    "type",
+    "data_type",
+    "file_name",
+    "md5sum",
+    "data_format",
+    "submitter_id",
+    "data_category",
+    "file_size",
+    "id",
+    "experimental_strategy"
+  ]
+}

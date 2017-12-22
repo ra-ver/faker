@@ -1,0 +1,701 @@
+{"doc":
+  {
+    "type" : "object",
+    "properties": {
+      "cases": {
+        "properties": {
+          "created_datetime": {
+            "type": "string"
+          },
+          "dataset": {
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "dbgap_accession_number": {
+                "type": "string"
+              },
+              "disease_type": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "intended_release_date": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "primary_site": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "days_to_lost_to_followup": {
+            "type": "integer"
+          },
+          "demographic": {
+            "properties": {
+              "cause_of_death": {
+                "type": "string"
+              },
+              "created_datetime": {
+                "type": "string"
+              },
+              "days_to_birth": {
+                "type": "integer"
+              },
+              "days_to_death": {
+                "type": "integer"
+              },
+              "ethnicity": {
+                "type": "string"
+              },
+              "gender": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "race": {
+                "type": "string"
+              },
+              "state": {
+                "type": "string"
+              },
+              "submitter_id": {
+                "type": "string"
+              },
+              "updated_datetime": {
+                "type": "string"
+              },
+              "vital_status": {
+                "type": "string"
+              },
+              "year_of_birth": {
+                "type": "float"
+              },
+              "year_of_death": {
+                "type": "float"
+              }
+            },
+            "type": "object"
+          },
+          "diagnosis": {
+            "properties": {
+              "age_at_diagnosis": {
+                "type": "float"
+              },
+              "ajcc_clinical_m": {
+                "type": "string"
+              },
+              "ajcc_clinical_n": {
+                "type": "string"
+              },
+              "ajcc_clinical_stage": {
+                "type": "string"
+              },
+              "ajcc_clinical_t": {
+                "type": "string"
+              },
+              "ajcc_pathologic_m": {
+                "type": "string"
+              },
+              "ajcc_pathologic_n": {
+                "type": "string"
+              },
+              "ajcc_pathologic_stage": {
+                "type": "string"
+              },
+              "ajcc_pathologic_t": {
+                "type": "string"
+              },
+              "ann_arbor_b_symptoms": {
+                "type": "string"
+              },
+              "ann_arbor_clinical_stage": {
+                "type": "string"
+              },
+              "ann_arbor_extranodal_involvement": {
+                "type": "string"
+              },
+              "ann_arbor_pathologic_stage": {
+                "type": "string"
+              },
+              "best_overall_response": {
+                "type": "string"
+              },
+              "burkitt_lymphoma_clinical_variant": {
+                "type": "string"
+              },
+              "cause_of_death": {
+                "type": "string"
+              },
+              "circumferential_resection_margin": {
+                "type": "float"
+              },
+              "classification_of_tumor": {
+                "type": "string"
+              },
+              "colon_polyps_history": {
+                "type": "string"
+              },
+              "created_datetime": {
+                "type": "string"
+              },
+              "days_to_best_overall_response": {
+                "type": "integer"
+              },
+              "days_to_birth": {
+                "type": "float"
+              },
+              "days_to_death": {
+                "type": "float"
+              },
+              "days_to_diagnosis": {
+                "type": "integer"
+              },
+              "days_to_hiv_diagnosis": {
+                "type": "float"
+              },
+              "days_to_last_follow_up": {
+                "type": "float"
+              },
+              "days_to_last_known_disease_status": {
+                "type": "float"
+              },
+              "days_to_new_event": {
+                "type": "float"
+              },
+              "days_to_recurrence": {
+                "type": "float"
+              },
+              "figo_stage": {
+                "type": "string"
+              },
+              "hiv_positive": {
+                "type": "string"
+              },
+              "hpv_positive_type": {
+                "type": "string"
+              },
+              "hpv_status": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "iss_stage": {
+                "type": "string"
+              },
+              "last_known_disease_status": {
+                "type": "string"
+              },
+              "laterality": {
+                "type": "string"
+              },
+              "ldh_level_at_diagnosis": {
+                "type": "float"
+              },
+              "ldh_normal_range_upper": {
+                "type": "float"
+              },
+              "lymph_nodes_positive": {
+                "type": "integer"
+              },
+              "lymphatic_invasion_present": {
+                "type": "string"
+              },
+              "method_of_diagnosis": {
+                "type": "string"
+              },
+              "morphology": {
+                "type": "string"
+              },
+              "new_event_anatomic_site": {
+                "type": "string"
+              },
+              "new_event_type": {
+                "type": "string"
+              },
+              "overall_survival": {
+                "type": "integer"
+              },
+              "perineural_invasion_present": {
+                "type": "string"
+              },
+              "primary_diagnosis": {
+                "type": "string"
+              },
+              "prior_malignancy": {
+                "type": "string"
+              },
+              "prior_treatment": {
+                "type": "string"
+              },
+              "progression_free_survival": {
+                "type": "integer"
+              },
+              "progression_free_survival_event": {
+                "type": "string"
+              },
+              "progression_or_recurrence": {
+                "type": "string"
+              },
+              "residual_disease": {
+                "type": "string"
+              },
+              "site_of_resection_or_biopsy": {
+                "type": "string"
+              },
+              "state": {
+                "type": "string"
+              },
+              "submitter_id": {
+                "type": "string"
+              },
+              "tissue_or_organ_of_origin": {
+                "type": "string"
+              },
+              "tumor_grade": {
+                "type": "string"
+              },
+              "tumor_stage": {
+                "type": "string"
+              },
+              "updated_datetime": {
+                "type": "string"
+              },
+              "vascular_invasion_present": {
+                "type": "string"
+              },
+              "vital_status": {
+                "type": "string"
+              },
+              "year_of_diagnosis": {
+                "type": "float"
+              }
+            },
+            "type": "nested"
+          },
+          "disease_type": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "index_date": {
+            "type": "string"
+          },
+          "lost_to_followup": {
+            "type": "string"
+          },
+          "primary_site": {
+            "type": "string"
+          },
+          "program": {
+            "properties": {
+              "dbgap_accession_number": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "sample": {
+            "properties": {
+              "aliquot": {
+                "properties": {
+                  "a260_a280_ratio": {
+                    "type": "float"
+                  },
+                  "aliquot_quantity": {
+                    "type": "float"
+                  },
+                  "aliquot_volume": {
+                    "type": "float"
+                  },
+                  "amount": {
+                    "type": "float"
+                  },
+                  "analyte_quantity": {
+                    "type": "float"
+                  },
+                  "analyte_type": {
+                    "type": "string"
+                  },
+                  "analyte_volume": {
+                    "type": "float"
+                  },
+                  "concentration": {
+                    "type": "float"
+                  },
+                  "created_datetime": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "normal_tumor_genotype_snp_match": {
+                    "type": "string"
+                  },
+                  "read_group": {
+                    "properties": {
+                      "RIN": {
+                        "type": "float"
+                      },
+                      "adapter_name": {
+                        "type": "string"
+                      },
+                      "adapter_sequence": {
+                        "type": "string"
+                      },
+                      "base_caller_name": {
+                        "type": "string"
+                      },
+                      "base_caller_version": {
+                        "type": "string"
+                      },
+                      "created_datetime": {
+                        "type": "string"
+                      },
+                      "experiment_name": {
+                        "type": "string"
+                      },
+                      "flow_cell_barcode": {
+                        "type": "string"
+                      },
+                      "id": {
+                        "type": "string"
+                      },
+                      "includes_spike_ins": {
+                        "type": "boolean"
+                      },
+                      "instrument_model": {
+                        "type": "string"
+                      },
+                      "is_paired_end": {
+                        "type": "boolean"
+                      },
+                      "library_name": {
+                        "type": "string"
+                      },
+                      "library_preparation_kit_catalog_number": {
+                        "type": "string"
+                      },
+                      "library_preparation_kit_name": {
+                        "type": "string"
+                      },
+                      "library_preparation_kit_vendor": {
+                        "type": "string"
+                      },
+                      "library_preparation_kit_version": {
+                        "type": "string"
+                      },
+                      "library_selection": {
+                        "type": "string"
+                      },
+                      "library_strand": {
+                        "type": "string"
+                      },
+                      "library_strategy": {
+                        "type": "string"
+                      },
+                      "platform": {
+                        "type": "string"
+                      },
+                      "read_group_name": {
+                        "type": "string"
+                      },
+                      "read_length": {
+                        "type": "integer"
+                      },
+                      "sequencing_center": {
+                        "type": "string"
+                      },
+                      "sequencing_date": {
+                        "type": "string"
+                      },
+                      "size_selection_range": {
+                        "type": "string"
+                      },
+                      "spike_ins_concentration": {
+                        "type": "string"
+                      },
+                      "spike_ins_fasta": {
+                        "type": "string"
+                      },
+                      "state": {
+                        "type": "string"
+                      },
+                      "submitter_id": {
+                        "type": "string"
+                      },
+                      "target_capture_kit_catalog_number": {
+                        "type": "string"
+                      },
+                      "target_capture_kit_name": {
+                        "type": "string"
+                      },
+                      "target_capture_kit_target_region": {
+                        "type": "string"
+                      },
+                      "target_capture_kit_vendor": {
+                        "type": "string"
+                      },
+                      "target_capture_kit_version": {
+                        "type": "string"
+                      },
+                      "to_trim_adapter_sequence": {
+                        "type": "boolean"
+                      },
+                      "updated_datetime": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "nested"
+                  },
+                  "ribosomal_rna_28s_16s_ratio": {
+                    "type": "float"
+                  },
+                  "shipment_date": {
+                    "type": "string"
+                  },
+                  "shipment_destination": {
+                    "type": "string"
+                  },
+                  "shipment_origin": {
+                    "type": "string"
+                  },
+                  "source_center": {
+                    "type": "string"
+                  },
+                  "spectrophotometer_method": {
+                    "type": "string"
+                  },
+                  "state": {
+                    "type": "string"
+                  },
+                  "submitter_id": {
+                    "type": "string"
+                  },
+                  "updated_datetime": {
+                    "type": "string"
+                  },
+                  "well_number": {
+                    "type": "string"
+                  }
+                },
+                "type": "nested"
+              },
+              "biospecimen_anatomic_site": {
+                "type": "string"
+              },
+              "composition": {
+                "type": "string"
+              },
+              "created_datetime": {
+                "type": "string"
+              },
+              "current_weight": {
+                "type": "float"
+              },
+              "days_to_collection": {
+                "type": "integer"
+              },
+              "days_to_sample_procurement": {
+                "type": "integer"
+              },
+              "diagnosis_pathologically_confirmed": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "initial_weight": {
+                "type": "float"
+              },
+              "intermediate_dimension": {
+                "type": "float"
+              },
+              "longest_dimension": {
+                "type": "float"
+              },
+              "method_of_sample_procurement": {
+                "type": "string"
+              },
+              "preservation_method": {
+                "type": "string"
+              },
+              "shortest_dimension": {
+                "type": "float"
+              },
+              "slide": {
+                "properties": {
+                  "created_datetime": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "number_proliferating_cells": {
+                    "type": "integer"
+                  },
+                  "percent_eosinophil_infiltration": {
+                    "type": "float"
+                  },
+                  "percent_granulocyte_infiltration": {
+                    "type": "float"
+                  },
+                  "percent_inflam_infiltration": {
+                    "type": "float"
+                  },
+                  "percent_lymphocyte_infiltration": {
+                    "type": "float"
+                  },
+                  "percent_monocyte_infiltration": {
+                    "type": "float"
+                  },
+                  "percent_necrosis": {
+                    "type": "float"
+                  },
+                  "percent_neutrophil_infiltration": {
+                    "type": "float"
+                  },
+                  "percent_normal_cells": {
+                    "type": "float"
+                  },
+                  "percent_stromal_cells": {
+                    "type": "float"
+                  },
+                  "percent_tumor_cells": {
+                    "type": "float"
+                  },
+                  "percent_tumor_nuclei": {
+                    "type": "float"
+                  },
+                  "section_location": {
+                    "type": "string"
+                  },
+                  "state": {
+                    "type": "string"
+                  },
+                  "submitter_id": {
+                    "type": "string"
+                  },
+                  "updated_datetime": {
+                    "type": "string"
+                  }
+                },
+                "type": "nested"
+              },
+              "state": {
+                "type": "string"
+              },
+              "submitter_id": {
+                "type": "string"
+              },
+              "time_between_clamping_and_freezing": {
+                "type": "float"
+              },
+              "time_between_excision_and_freezing": {
+                "type": "float"
+              },
+              "tissue_type": {
+                "type": "string"
+              },
+              "tumor_descriptor": {
+                "type": "string"
+              },
+              "updated_datetime": {
+                "type": "string"
+              }
+            },
+            "type": "nested"
+          },
+          "submitter_id": {
+            "type": "string"
+          },
+          "trio": {
+            "properties": {
+              "created_datetime": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "state": {
+                "type": "string"
+              },
+              "submitter_id": {
+                "type": "string"
+              },
+              "updated_datetime": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "updated_datetime": {
+            "type": "string"
+          }
+        },
+        "type": "nested"
+      },
+      "created_datetime": {
+        "type": "string"
+      },
+      "data_category": {
+        "type": "string"
+      },
+      "data_format": {
+        "type": "string"
+      },
+      "data_type": {
+        "type": "string"
+      },
+      "derived_from": {
+        "type": "string"
+      },
+      "experimental_strategy": {
+        "type": "string"
+      },
+      "file_name": {
+        "type": "string"
+      },
+      "file_size": {
+        "type": "integer"
+      },
+      "id": {
+        "type": "string"
+      },
+      "md5sum": {
+        "type": "string"
+      },
+      "submitter_id": {
+        "type": "string"
+      },
+      "updated_datetime": {
+        "type": "string"
+      }
+    },
+    "required": ["cases"],
+    "definitions": {
+      "positiveInt": {
+        "type": "integer",
+        "minimum": 0,
+        "exclusiveMinimum": true
+      }
+    }
+  }
+}
