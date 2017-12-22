@@ -21,6 +21,7 @@
 "use strict";
 import fs from 'fs';
 import path from 'path';
+import babelPolyfill from 'babel-polyfill';
 
 export default class SchemaLister {
     constructor(logger){

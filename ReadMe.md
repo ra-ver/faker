@@ -1,7 +1,7 @@
 <h1 align="center"> Faker </h1> <br>
 
 <p align="center">
-Tool for generating Fake JSON data.
+Tool for generating Fake JSON data
 </p>
 
 ## Table of Contents
