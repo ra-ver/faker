@@ -686,7 +686,8 @@
         "type": "string"
       },
       "updated_datetime": {
-        "type": "string"
+        "type": "string",
+        "format": ""
       }
     },
     "required": ["cases"],

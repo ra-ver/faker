@@ -1,0 +1,114 @@
+{"read_groups": [
+    {
+      "id": "7946f117-5771-4d4e-90a3-6a9e02ea234c",
+      "submitter_id": "HKCWY.8"
+    },
+    {
+      "id": "f6681fa8-ce8f-4cfe-88a5-bb91fe865537",
+      "submitter_id": "HL5JC.1"
+    },
+    {
+      "id": "7d6104e9-d681-4b03-8cde-ea0085beb1c5",
+      "submitter_id": "HL5JC.2"
+    },
+    {
+      "id": "e12ca7ab-146a-4079-b6f1-bd8b4bacd919",
+      "submitter_id": "HL5JC.3"
+    },
+    {
+      "id": "d1825f36-e182-4b58-9542-fbd37850714b",
+      "submitter_id": "HL5JC.4"
+    },
+    {
+      "id": "0f2be3b4-6e6f-4fb3-9403-43f4ab1668c1",
+      "submitter_id": "HL5KG.5"
+    },
+    {
+      "id": "4c900562-18a5-4e14-bdb8-1658fc490e2e",
+      "submitter_id": "HL5KG.6"
+    },
+    {
+      "id": "15ffe8d8-ba3d-4848-8989-4b95688ab72a",
+      "submitter_id": "HL5KG.7"
+    },
+    {
+      "id": "0e4e7613-2cbb-4ee8-9187-8cb91a915846",
+      "submitter_id": "HL5KG.8"
+    },
+    {
+      "id": "af72d840-17a9-47f6-bfe3-27644a1813ad",
+      "submitter_id": "HL5LK.1"
+    },
+    {
+      "id": "8a032f39-296b-459d-ac59-df2aead4f37b",
+      "submitter_id": "HL5LK.2"
+    },
+    {
+      "id": "1526d890-4352-44c7-87a3-153a114a3eab",
+      "submitter_id": "HL5LK.3"
+    },
+    {
+      "id": "85651820-063d-4bbc-8a7f-1fbe5838fc7a",
+      "submitter_id": "HL5LK.4"
+    },
+    {
+      "id": "9af01e03-e81b-4f56-a6b3-d81b5cfe6cb4",
+      "submitter_id": "HL7FC.1"
+    },
+    {
+      "id": "bc6af964-4609-4385-b3a8-2fba9898e757",
+      "submitter_id": "HL7FC.2"
+    },
+    {
+      "id": "7464d970-2d4b-4f18-a0af-1848bb6fdbc9",
+      "submitter_id": "HL7FC.3"
+    },
+    {
+      "id": "10e41c1d-13f1-4212-9357-e4194b5621e2",
+      "submitter_id": "HL7FC.4"
+    },
+    {
+      "id": "aba16ee4-af1e-4127-b105-2cc1bd2bfb10",
+      "submitter_id": "HL7NF.5"
+    },
+    {
+      "id": "0b86f761-7408-45ad-86e6-762efe71c086",
+      "submitter_id": "HL7NF.6"
+    },
+    {
+      "id": "9d744b46-fb53-41f0-8bb6-9ea9a3278cd8",
+      "submitter_id": "HL7NF.7"
+    },
+    {
+      "id": "9086db2b-d621-4e63-bcc6-ab7e209680ea",
+      "submitter_id": "HL7NF.8"
+    },
+    {
+      "id": "e69c081d-c707-492a-abd9-9123d5fe326b",
+      "submitter_id": "HL7W7.5"
+    },
+    {
+      "id": "03cccb4d-2d20-436f-9ae7-d5550566cc16",
+      "submitter_id": "HL7W7.6"
+    },
+    {
+      "id": "e7409632-6899-4ff5-bd1a-da3847d3ecd3",
+      "submitter_id": "HL7W7.7"
+    },
+    {
+      "id": "d89ab7a0-1ff0-4c32-9d52-a7325e55297f",
+      "submitter_id": "HL7W7.8"
+    }
+  ],
+  "type": "submitted_aligned_reads",
+  "data_type": "Aligned Reads",
+  "file_name": "CG0000-4402.cram",
+  "md5sum": "95c7463e99da383e305be9f254fbbb49",
+  "data_format": "CRAM",
+  "submitter_id": "gs://fc-417e7cfc-5a7e-437f-9e3d-5d9c768206ab/GMKF_Seidman_CongenitalHeartDisease_WGS/RP-1445/WGS/CG0000-4402/v1/CG0000-4402.cram",
+  "data_category": "Sequencing Reads",
+  "file_size": 18922988981,
+  "state_comment": null,
+  "id": "9d40c32c-8def-4624-8c69-1bf2bf8c641f",
+  "experimental_strategy": "WGS"
+}
