@@ -2,7 +2,7 @@ import SchemaLister from './src/list-schemas';
 import winston from 'winston';
 import _ from 'lodash';
 import fs from 'fs';
-import jsf from 'json-schema-faker'
+import SchemaFaker from 'schema-faker'
 
 
 /*
@@ -37,7 +37,7 @@ schemaLister.list(config.schemas).then(schemas => {
     _.each(schemas, (item, key) => {
         try{
             logger.info("Generating fake values for schema: "+ key);
-            let output = jsf(item);
+            let output = new SchemaFaker(item);
             logger.info(output);
         } catch (err){
             logger.error("Error processing schema for : "+ key + ". Details: "+ err);

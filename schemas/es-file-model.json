@@ -1,299 +1,504 @@
-{"doc":
-  {
+{
     "type" : "object",
     "properties": {
       "cases": {
-        "properties": {
+        "type": "array",
+        "minItems" : 2,
+        "items" : {
+          "type" : "object",
+          "properties": {
           "created_datetime": {
-            "type": "string"
+            "type": "string",
+            "faker": "date.past"
           },
           "dataset": {
             "properties": {
               "code": {
-                "type": "string"
+                "type": "string",
+                "minLength": 3,
+                "maxLength": 3
               },
               "dbgap_accession_number": {
-                "type": "string"
+                "type": "string",
+                "format": "accession"
               },
               "disease_type": {
-                "type": "string"
+                "type": "string",
+                "pattern": "Blood Cancer|Liver cancer|Renal cancer|Breast cancer|Prostate cancer|Lung cancer|Pancreatic cancer|Brain cancer|Biliary Tract cancer|Bladder cancer|Bone cancer|Esophageal cancer|Gastric cancer|Head and Neck cancer|Ovarian cancer|Skin cancer|Soft Tissue cancer|Thyroid cancer|Cervical cancer|Chronic Lymphocytic Leukemia|Chronic Myeloid Disorders|Colon cancer|Colorectal cancer|Endometrial cancer|Malignant Lymphoma|Melanoma|Oral cancer|Pediatric Brain Tumors|Pediatric Solid Tumor|Rare Pancreatic Tumors|Rectal cancer|Uterine cancer"
               },
               "id": {
-                "type": "string"
+                "type": "string",
+                "chance" : "guid"
               },
               "intended_release_date": {
-                "type": "string"
+                "type": "string",
+                "faker": "date.future"
               },
               "name": {
-                "type": "string"
+                "type": "string",
+                "format": "datasetname"
               },
               "primary_site": {
-                "type": "string"
+                "type": "string",
+                "pattern" : "Adrenal Gland|Bile Duct|Bladder|Blood|Bone|Bone Marrow|Brain|Breast|Cervix|Colorectal|Esophagus|Eye|Head and Neck|Kidney|Liver|Lung|Lymph Nodes|Nervous System|Ovary|Pancreas|Pleura|Prostate|Skin|Soft Tissue|Stomach|Testis|Thymus|Thyroid|Uter"
               }
             },
-            "type": "object"
+            "type": "object",
+            "definitions": {
+              "fileSize": {
+                "type": "integer",
+                "minimum": 10000000000,
+                "exclusiveMinimum": true
+              },
+              "days": {
+                "type": "integer",
+                "minimum": 10,
+                "exclusiveMinimum": true
+              },
+              "daysToBirth": {
+                "type": "integer",
+                "minimum": 10950,
+                "exclusiveMinimum": true
+              },
+              "birthYear": {
+                "type": "integer",
+                "minimum": 1950,
+                "maximum": 1990,
+                "exclusiveMinimum": true
+              },
+              "deathYear": {
+                "type": "integer",
+                "minimum": 1991,
+                "maximum": 2017,
+                "exclusiveMinimum": true
+              },
+              "margin": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 10,
+                "exclusiveMinimum": true
+              },
+              "levels": {
+                "type": "integer",
+                "minimum": 70,
+                "maximum": 150,
+                "exclusiveMinimum": true
+              }
+
+            }
           },
           "days_to_lost_to_followup": {
-            "type": "integer"
+            "$ref" : "#/definitions/days"
           },
           "demographic": {
             "properties": {
               "cause_of_death": {
-                "type": "string"
+                "type": "string",
+                "pattern" : "Illness|Other"
               },
               "created_datetime": {
-                "type": "string"
+                "type": "string",
+                "faker": "date.past"
               },
               "days_to_birth": {
-                "type": "integer"
+                "$ref" : "#/definitions/daysToBirth"
               },
               "days_to_death": {
-                "type": "integer"
+                "$ref" : "#/definitions/days"
               },
               "ethnicity": {
-                "type": "string"
+                "type": "string",
+                "pattern": "White|African American|Asian|Black|Arab|Indigenous|Other"
               },
               "gender": {
-                "type": "string"
+                "type": "string",
+                "chance":"gender"
               },
               "id": {
-                "type": "string"
+                "type": "string",
+                "chance":"guid"
               },
               "race": {
-                "type": "string"
+                "type": "string",
+                "pattern": "White|African American|Asian|Black|Arab|Indigenous|Other"
               },
               "state": {
-                "type": "string"
+                "type": "string",
+                "pattern" : "1|2|3|4|T1c|IIB|IIC|4A|I|II|Stage1|CT4aN1"
               },
               "submitter_id": {
-                "type": "string"
+                "type": "string",
+                "minLength":7
               },
               "updated_datetime": {
-                "type": "string"
+                "type": "string",
+                "faker" : "date.past"
               },
               "vital_status": {
-                "type": "string"
+                "type": "string",
+                "pattern" : "Alive|Deceased"
               },
               "year_of_birth": {
-                "type": "float"
+                "$ref" : "#/definitions/birthYear"
               },
               "year_of_death": {
-                "type": "float"
+                "$ref" : "#/definitions/deathYear"
               }
             },
-            "type": "object"
+            "type": "object",
+            "definitions": {
+              "fileSize": {
+                "type": "integer",
+                "minimum": 10000000000,
+                "exclusiveMinimum": true
+              },
+              "days": {
+                "type": "integer",
+                "minimum": 10,
+                "exclusiveMinimum": true
+              },
+              "daysToBirth": {
+                "type": "integer",
+                "minimum": 10950,
+                "exclusiveMinimum": true
+              },
+              "birthYear": {
+                "type": "integer",
+                "minimum": 1950,
+                "maximum": 1990,
+                "exclusiveMinimum": true
+              },
+              "deathYear": {
+                "type": "integer",
+                "minimum": 1991,
+                "maximum": 2017,
+                "exclusiveMinimum": true
+              },
+              "margin": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 10,
+                "exclusiveMinimum": true
+              },
+              "levels": {
+                "type": "integer",
+                "minimum": 70,
+                "maximum": 150,
+                "exclusiveMinimum": true
+              }
+
+            }
           },
           "diagnosis": {
-            "properties": {
-              "age_at_diagnosis": {
-                "type": "float"
+            "type": "array",
+            "minItems":1,
+            "items":{
+              "type" : "object",
+              "properties": {
+                "age_at_diagnosis": {
+                  "type": "integer",
+                  "chance": "age"
+                },
+                "ajcc_clinical_m": {
+                  "type": "string",
+                  "pattern": "Yes|No"
+                },
+                "ajcc_clinical_n": {
+                  "type": "string",
+                  "pattern": "Yes|No"
+                },
+                "ajcc_clinical_stage": {
+                  "type": "string",
+                  "pattern": "M|N|T"
+                },
+                "ajcc_clinical_t": {
+                  "type": "string",
+                  "pattern": "Yes|No"
+                },
+                "ajcc_pathologic_m": {
+                  "type": "string",
+                  "pattern": "Yes|No"
+                },
+                "ajcc_pathologic_n": {
+                  "type": "string",
+                  "pattern": "Yes|No"
+                },
+                "ajcc_pathologic_stage": {
+                  "type": "string",
+                  "pattern": "M|N|T"
+                },
+                "ajcc_pathologic_t": {
+                  "type": "string",
+                  "pattern": "Yes|No"
+                },
+                "ann_arbor_b_symptoms": {
+                  "type": "string",
+                  "minLength" : 7
+                },
+                "ann_arbor_clinical_stage": {
+                  "type": "string",
+                  "pattern" : "StageI|StateII|StageIII|StageIV"
+                },
+                "ann_arbor_extranodal_involvement": {
+                  "type": "string",
+                  "pattern": "YES|No"
+                },
+                "ann_arbor_pathologic_stage": {
+                  "type": "string",
+                  "pattern" : "StageI|StateII|StageIII|StageIV"
+                },
+                "best_overall_response": {
+                  "type": "string",
+                  "pattern" : "CR|PR|PD|SD"
+                },
+                "burkitt_lymphoma_clinical_variant": {
+                  "type": "string",
+                  "pattern" : "eBL|sBL"
+                },
+                "cause_of_death": {
+                  "type": "string",
+                  "pattern": "Illness|Other"
+                },
+                "circumferential_resection_margin": {
+                  "$ref" : "#/definitions/margin"
+                },
+                "classification_of_tumor": {
+                  "type": "string",
+                  "pattern" : "Blood Cancer|Liver cancer|Renal cancer|Breast cancer|Prostate cancer|Lung cancer|Pancreatic cancer|Brain cancer|Biliary Tract cancer|Bladder cancer|Bone cancer|Esophageal cancer|Gastric cancer|Head and Neck cancer|Ovarian cancer|Skin cancer|Soft Tissue cancer|Thyroid cancer|Cervical cancer|Chronic Lymphocytic Leukemia|Chronic Myeloid Disorders|Colon cancer|Colorectal cancer|Endometrial cancer|Malignant Lymphoma|Melanoma|Oral cancer|Pediatric Brain Tumors|Pediatric Solid Tumor|Rare Pancreatic Tumors|Rectal cancer|Uterine cancer"
+                },
+                "colon_polyps_history": {
+                  "type": "string",
+                  "pattern": "YES|No"
+                },
+                "created_datetime": {
+                  "type": "string",
+                  "faker" : "date.past"
+                },
+                "days_to_best_overall_response": {
+                  "$ref" : "#/definitions/days"
+                },
+                "days_to_birth": {
+                  "$ref" : "#/definitions/daysToBirth"
+                },
+                "days_to_death": {
+                  "$ref" : "#/definitions/days"
+                },
+                "days_to_diagnosis": {
+                  "$ref" : "#/definitions/days"
+                },
+                "days_to_hiv_diagnosis": {
+                  "$ref" : "#/definitions/days"
+                },
+                "days_to_last_follow_up": {
+                  "$ref" : "#/definitions/days"
+                },
+                "days_to_last_known_disease_status": {
+                  "$ref" : "#/definitions/days"
+                },
+                "days_to_new_event": {
+                  "$ref" : "#/definitions/days"
+                },
+                "days_to_recurrence": {
+                  "$ref" : "#/definitions/days"
+                },
+                "figo_stage": {
+                  "type": "string",
+                  "pattern": "Not reported|NA"
+                },
+                "hiv_positive": {
+                  "type": "string",
+                  "pattern":"YES|No"
+                },
+                "hpv_positive_type": {
+                  "type": "string",
+                  "pattern":"NA"
+                },
+                "hpv_status": {
+                  "type": "string",
+                  "pattern":"NA"
+                },
+                "id": {
+                  "type": "string",
+                  "chance" : "guid"
+                },
+                "iss_stage": {
+                  "type": "string",
+                  "pattern": "Not reported|NA"
+                },
+                "last_known_disease_status": {
+                  "type": "string",
+                  "pattern": "Not reported|NA"
+                },
+                "laterality": {
+                  "type": "string",
+                  "pattern": "Left|Right|NA"
+                },
+                "ldh_level_at_diagnosis": {
+                  "$ref" : "#/definitions/levels"
+                },
+                "ldh_normal_range_upper": {
+                  "$ref" : "#/definitions/levels"
+                },
+                "lymph_nodes_positive": {
+                  "$ref" : "#/definitions/margin"
+                },
+                "lymphatic_invasion_present": {
+                  "type": "string",
+                  "pattern":"YES|No"
+                },
+                "method_of_diagnosis": {
+                  "type": "string",
+                  "pattern" : "Resection|Biopsy|NA"
+                },
+                "morphology": {
+                  "type": "string",
+                  "pattern":"NA"
+                },
+                "new_event_anatomic_site": {
+                  "type": "string",
+                  "pattern": "NA|Adrenal Gland|Bile Duct|Bladder|Blood|Bone|Bone Marrow|Brain|Breast|Cervix|Colorectal|Esophagus|Eye|Head and Neck|Kidney|Liver|Lung|Lymph Nodes|Nervous System|Ovary|Pancreas|Pleura|Prostate|Skin|Soft Tissue|Stomach|Testis|Thymus|Thyroid|Uter"
+                },
+                "new_event_type": {
+                  "type": "string",
+                  "pattern": "NA|Blood Cancer|Liver cancer|Renal cancer|Breast cancer|Prostate cancer|Lung cancer|Pancreatic cancer|Brain cancer|Biliary Tract cancer|Bladder cancer|Bone cancer|Esophageal cancer|Gastric cancer|Head and Neck cancer|Ovarian cancer|Skin cancer|Soft Tissue cancer|Thyroid cancer|Cervical cancer|Chronic Lymphocytic Leukemia|Chronic Myeloid Disorders|Colon cancer|Colorectal cancer|Endometrial cancer|Malignant Lymphoma|Melanoma|Oral cancer|Pediatric Brain Tumors|Pediatric Solid Tumor|Rare Pancreatic Tumors|Rectal cancer|Uterine cancer"
+                },
+                "overall_survival": {
+                  "$ref" : "#/definitions/daysToBirth"
+                },
+                "perineural_invasion_present": {
+                  "type": "string",
+                  "pattern":"Yes|No"
+                },
+                "primary_diagnosis": {
+                  "type": "string",
+                  "pattern" : "Resection|Biopsy|NA"
+                },
+                "prior_malignancy": {
+                  "type": "string",
+                  "pattern":"Yes|No"
+                },
+                "prior_treatment": {
+                  "type": "string",
+                  "pattern":"Unknown"
+                },
+                "progression_free_survival": {
+                  "$ref" : "#/definitions/daysToBirth"
+                },
+                "progression_free_survival_event": {
+                  "type": "string",
+                  "pattern": "NA|Blood Cancer|Liver cancer|Renal cancer|Breast cancer|Prostate cancer|Lung cancer|Pancreatic cancer|Brain cancer|Biliary Tract cancer|Bladder cancer|Bone cancer|Esophageal cancer|Gastric cancer|Head and Neck cancer|Ovarian cancer|Skin cancer|Soft Tissue cancer|Thyroid cancer|Cervical cancer|Chronic Lymphocytic Leukemia|Chronic Myeloid Disorders|Colon cancer|Colorectal cancer|Endometrial cancer|Malignant Lymphoma|Melanoma|Oral cancer|Pediatric Brain Tumors|Pediatric Solid Tumor|Rare Pancreatic Tumors|Rectal cancer|Uterine cancer"
+                },
+                "progression_or_recurrence": {
+                  "type": "string",
+                  "pattern":"Yes|No"
+                },
+                "residual_disease": {
+                  "type": "string",
+                  "pattern":"Yes|No"
+                },
+                "site_of_resection_or_biopsy": {
+                  "type": "string",
+                  "pattern": "Adrenal Gland|Bile Duct|Bladder|Blood|Bone|Bone Marrow|Brain|Breast|Cervix|Colorectal|Esophagus|Eye|Head and Neck|Kidney|Liver|Lung|Lymph Nodes|Nervous System|Ovary|Pancreas|Pleura|Prostate|Skin|Soft Tissue|Stomach|Testis|Thymus|Thyroid|Uter"
+                },
+                "state": {
+                  "type": "string",
+                  "pattern":"Dormant|Active|Stable|Unknown"
+                },
+                "submitter_id": {
+                  "type": "string",
+                  "minLength":8
+                },
+                "tissue_or_organ_of_origin": {
+                  "type": "string",
+                  "pattern": "Adrenal Gland|Bile Duct|Bladder|Blood|Bone|Bone Marrow|Brain|Breast|Cervix|Colorectal|Esophagus|Eye|Head and Neck|Kidney|Liver|Lung|Lymph Nodes|Nervous System|Ovary|Pancreas|Pleura|Prostate|Skin|Soft Tissue|Stomach|Testis|Thymus|Thyroid|Uter"
+                },
+                "tumor_grade": {
+                  "type": "string",
+                  "pattern": "I|II|III|IV|NA"
+                },
+                "tumor_stage": {
+                  "type": "string",
+                  "pattern": "StageI|StageII|StageIII|StageIV|NA"
+                },
+                "updated_datetime": {
+                  "type": "string",
+                  "faker": "date.past"
+                },
+                "vascular_invasion_present": {
+                  "type": "string",
+                  "pattern":"Yes|No"
+                },
+                "vital_status": {
+                  "type": "string",
+                  "pattern":"Deceased|Alive"
+                },
+                "year_of_diagnosis": {
+                  "$ref" : "#/definitions/deathYear"
+                }
               },
-              "ajcc_clinical_m": {
-                "type": "string"
-              },
-              "ajcc_clinical_n": {
-                "type": "string"
-              },
-              "ajcc_clinical_stage": {
-                "type": "string"
-              },
-              "ajcc_clinical_t": {
-                "type": "string"
-              },
-              "ajcc_pathologic_m": {
-                "type": "string"
-              },
-              "ajcc_pathologic_n": {
-                "type": "string"
-              },
-              "ajcc_pathologic_stage": {
-                "type": "string"
-              },
-              "ajcc_pathologic_t": {
-                "type": "string"
-              },
-              "ann_arbor_b_symptoms": {
-                "type": "string"
-              },
-              "ann_arbor_clinical_stage": {
-                "type": "string"
-              },
-              "ann_arbor_extranodal_involvement": {
-                "type": "string"
-              },
-              "ann_arbor_pathologic_stage": {
-                "type": "string"
-              },
-              "best_overall_response": {
-                "type": "string"
-              },
-              "burkitt_lymphoma_clinical_variant": {
-                "type": "string"
-              },
-              "cause_of_death": {
-                "type": "string"
-              },
-              "circumferential_resection_margin": {
-                "type": "float"
-              },
-              "classification_of_tumor": {
-                "type": "string"
-              },
-              "colon_polyps_history": {
-                "type": "string"
-              },
-              "created_datetime": {
-                "type": "string"
-              },
-              "days_to_best_overall_response": {
-                "type": "integer"
-              },
-              "days_to_birth": {
-                "type": "float"
-              },
-              "days_to_death": {
-                "type": "float"
-              },
-              "days_to_diagnosis": {
-                "type": "integer"
-              },
-              "days_to_hiv_diagnosis": {
-                "type": "float"
-              },
-              "days_to_last_follow_up": {
-                "type": "float"
-              },
-              "days_to_last_known_disease_status": {
-                "type": "float"
-              },
-              "days_to_new_event": {
-                "type": "float"
-              },
-              "days_to_recurrence": {
-                "type": "float"
-              },
-              "figo_stage": {
-                "type": "string"
-              },
-              "hiv_positive": {
-                "type": "string"
-              },
-              "hpv_positive_type": {
-                "type": "string"
-              },
-              "hpv_status": {
-                "type": "string"
-              },
-              "id": {
-                "type": "string"
-              },
-              "iss_stage": {
-                "type": "string"
-              },
-              "last_known_disease_status": {
-                "type": "string"
-              },
-              "laterality": {
-                "type": "string"
-              },
-              "ldh_level_at_diagnosis": {
-                "type": "float"
-              },
-              "ldh_normal_range_upper": {
-                "type": "float"
-              },
-              "lymph_nodes_positive": {
-                "type": "integer"
-              },
-              "lymphatic_invasion_present": {
-                "type": "string"
-              },
-              "method_of_diagnosis": {
-                "type": "string"
-              },
-              "morphology": {
-                "type": "string"
-              },
-              "new_event_anatomic_site": {
-                "type": "string"
-              },
-              "new_event_type": {
-                "type": "string"
-              },
-              "overall_survival": {
-                "type": "integer"
-              },
-              "perineural_invasion_present": {
-                "type": "string"
-              },
-              "primary_diagnosis": {
-                "type": "string"
-              },
-              "prior_malignancy": {
-                "type": "string"
-              },
-              "prior_treatment": {
-                "type": "string"
-              },
-              "progression_free_survival": {
-                "type": "integer"
-              },
-              "progression_free_survival_event": {
-                "type": "string"
-              },
-              "progression_or_recurrence": {
-                "type": "string"
-              },
-              "residual_disease": {
-                "type": "string"
-              },
-              "site_of_resection_or_biopsy": {
-                "type": "string"
-              },
-              "state": {
-                "type": "string"
-              },
-              "submitter_id": {
-                "type": "string"
-              },
-              "tissue_or_organ_of_origin": {
-                "type": "string"
-              },
-              "tumor_grade": {
-                "type": "string"
-              },
-              "tumor_stage": {
-                "type": "string"
-              },
-              "updated_datetime": {
-                "type": "string"
-              },
-              "vascular_invasion_present": {
-                "type": "string"
-              },
-              "vital_status": {
-                "type": "string"
-              },
-              "year_of_diagnosis": {
-                "type": "float"
+              "definitions": {
+                "fileSize": {
+                  "type": "integer",
+                  "minimum": 10000000000,
+                  "exclusiveMinimum": true
+                },
+                "days": {
+                  "type": "integer",
+                  "minimum": 10,
+                  "exclusiveMinimum": true
+                },
+                "daysToBirth": {
+                  "type": "integer",
+                  "minimum": 10950,
+                  "exclusiveMinimum": true
+                },
+                "birthYear": {
+                  "type": "integer",
+                  "minimum": 1950,
+                  "maximum": 1990,
+                  "exclusiveMinimum": true
+                },
+                "deathYear": {
+                  "type": "integer",
+                  "minimum": 1991,
+                  "maximum": 2017,
+                  "exclusiveMinimum": true
+                },
+                "margin": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 10,
+                  "exclusiveMinimum": true
+                },
+                "levels": {
+                  "type": "integer",
+                  "minimum": 70,
+                  "maximum": 150,
+                  "exclusiveMinimum": true
+                }
+
               }
-            },
-            "type": "nested"
+            }
           },
           "disease_type": {
-            "type": "string"
+            "type": "string",
+            "pattern" : "Blood Cancer|Liver cancer|Renal cancer|Breast cancer|Prostate cancer|Lung cancer|Pancreatic cancer|Brain cancer|Biliary Tract cancer|Bladder cancer|Bone cancer|Esophageal cancer|Gastric cancer|Head and Neck cancer|Ovarian cancer|Skin cancer|Soft Tissue cancer|Thyroid cancer|Cervical cancer|Chronic Lymphocytic Leukemia|Chronic Myeloid Disorders|Colon cancer|Colorectal cancer|Endometrial cancer|Malignant Lymphoma|Melanoma|Oral cancer|Pediatric Brain Tumors|Pediatric Solid Tumor|Rare Pancreatic Tumors|Rectal cancer|Uterine cancer"
           },
           "id": {
-            "type": "string"
+            "type": "string",
+            "chance": "guid"
           },
           "index_date": {
-            "type": "string"
+            "type": "string",
+            "faker": "date.past"
           },
           "lost_to_followup": {
-            "type": "string"
+            "type": "string",
+            "faker": "name.findName"
           },
           "primary_site": {
-            "type": "string"
+            "type": "string",
+            "pattern" : "Adrenal Gland|Bile Duct|Bladder|Blood|Bone|Bone Marrow|Brain|Breast|Cervix|Colorectal|Esophagus|Eye|Head and Neck|Kidney|Liver|Lung|Lymph Nodes|Nervous System|Ovary|Pancreas|Pleura|Prostate|Skin|Soft Tissue|Stomach|Testis|Thymus|Thyroid|Uter"
           },
           "program": {
             "properties": {
@@ -624,79 +829,214 @@
             "type": "nested"
           },
           "submitter_id": {
-            "type": "string"
+            "type": "string",
+            "minLength": 8
           },
           "trio": {
             "properties": {
               "created_datetime": {
-                "type": "string"
+                "type": "string",
+                "faker": "date.past"
               },
               "id": {
-                "type": "string"
+                "type": "string",
+                "chance": "guid"
               },
               "state": {
-                "type": "string"
+                "type": "string",
+                "pattern": "Deceased|Alive"
               },
               "submitter_id": {
-                "type": "string"
+                "type": "string",
+                "minLength":7
               },
               "updated_datetime": {
-                "type": "string"
+                "type": "string",
+                "faker": "date.past"
               }
             },
-            "type": "object"
+            "type": "object",
+            "definitions": {
+              "fileSize": {
+                "type": "integer",
+                "minimum": 10000000000,
+                "exclusiveMinimum": true
+              },
+              "days": {
+                "type": "integer",
+                "minimum": 10,
+                "exclusiveMinimum": true
+              },
+              "daysToBirth": {
+                "type": "integer",
+                "minimum": 10950,
+                "exclusiveMinimum": true
+              },
+              "birthYear": {
+                "type": "integer",
+                "minimum": 1950,
+                "maximum": 1990,
+                "exclusiveMinimum": true
+              },
+              "deathYear": {
+                "type": "integer",
+                "minimum": 1991,
+                "maximum": 2017,
+                "exclusiveMinimum": true
+              },
+              "margin": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 10,
+                "exclusiveMinimum": true
+              },
+              "levels": {
+                "type": "integer",
+                "minimum": 70,
+                "maximum": 150,
+                "exclusiveMinimum": true
+              }
+
+            }
           },
           "updated_datetime": {
-            "type": "string"
+            "type": "string",
+            "faker": "date.past"
           }
         },
-        "type": "nested"
+          "definitions": {
+            "fileSize": {
+              "type": "integer",
+              "minimum": 10000000000,
+              "exclusiveMinimum": true
+            },
+            "days": {
+              "type": "integer",
+              "minimum": 10,
+              "exclusiveMinimum": true
+            },
+            "daysToBirth": {
+              "type": "integer",
+              "minimum": 10950,
+              "exclusiveMinimum": true
+            },
+            "birthYear": {
+              "type": "integer",
+              "minimum": 1950,
+              "maximum": 1990,
+              "exclusiveMinimum": true
+            },
+            "deathYear": {
+              "type": "integer",
+              "minimum": 1991,
+              "maximum": 2017,
+              "exclusiveMinimum": true
+            },
+            "margin": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 10,
+              "exclusiveMinimum": true
+            },
+            "levels": {
+              "type": "integer",
+              "minimum": 70,
+              "maximum": 150,
+              "exclusiveMinimum": true
+            }
+
+          }
+        }
       },
       "created_datetime": {
-        "type": "string"
+        "type": "string",
+        "faker": "date.past"
       },
       "data_category": {
-        "type": "string"
+        "type": "string",
+        "pattern" : "Sequencing Reads"
       },
       "data_format": {
-        "type": "string"
+        "type": "string",
+        "pattern" : "CRAM"
       },
       "data_type": {
-        "type": "string"
+        "type": "string",
+        "pattern" : "Aligned Reads"
       },
       "derived_from": {
-        "type": "string"
+        "type": "string",
+        "pattern" : "DNA"
       },
       "experimental_strategy": {
-        "type": "string"
+        "type": "string",
+        "pattern" : "WGS|WXS|WGA|AMPLICON|RNA-Seq"
       },
       "file_name": {
-        "type": "string"
+        "type": "string",
+        "faker": "system.fileName"
       },
       "file_size": {
-        "type": "integer"
+        "$ref" : "#/definitions/fileSize"
       },
       "id": {
-        "type": "string"
+        "type": "string",
+        "chance": "guid"
       },
       "md5sum": {
-        "type": "string"
+        "type": "string",
+        "format" : "md5"
       },
       "submitter_id": {
-        "type": "string"
+        "type": "string",
+        "minLength": 7
       },
       "updated_datetime": {
         "type": "string",
-        "format": ""
+        "faker": "date.past"
       }
     },
     "required": ["cases"],
     "definitions": {
-      "positiveInt": {
+      "fileSize": {
         "type": "integer",
-        "minimum": 0,
+        "minimum": 10000000000,
+        "exclusiveMinimum": true
+      },
+      "days": {
+        "type": "integer",
+        "minimum": 10,
+        "exclusiveMinimum": true
+      },
+      "daysToBirth": {
+        "type": "integer",
+        "minimum": 10950,
+        "exclusiveMinimum": true
+      },
+      "birthYear": {
+        "type": "integer",
+        "minimum": 1950,
+        "maximum": 1990,
+        "exclusiveMinimum": true
+      },
+      "deathYear": {
+        "type": "integer",
+        "minimum": 1991,
+        "maximum": 2017,
+        "exclusiveMinimum": true
+      },
+      "margin": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 10,
+        "exclusiveMinimum": true
+      },
+      "levels": {
+        "type": "integer",
+        "minimum": 70,
+        "maximum": 150,
         "exclusiveMinimum": true
       }
+
     }
   }
-}
