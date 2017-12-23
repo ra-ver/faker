@@ -48,3 +48,10 @@ schemaLister.list(config.schemas).then(schemas => {
     logger.error(err);
 });
 
+//TODO items
+// update schemas to set all properties to required
+// set submitterids to be non-spaces
+// generate ES put requests with generated json objects
+// generate patterns from a set of sample objects instead of hard coded patterns
+// directly get sample objects from a url
+// constraints on value related to each other
