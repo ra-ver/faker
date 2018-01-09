@@ -46,7 +46,7 @@ export default class DataExporter {
         data.forEach(async (item, index) => {
             try {
                 await setTimeout(() => {}, 2000);
-                let response = await axios.post(`http://142.1.177.54:9200/docs/models`, item).then(x => new Promise(resolve => setTimeout(() => resolve(x), 4000)));
+                let response = await axios.post(`http://localhost:9200/docs/models`, item).then(x => new Promise(resolve => setTimeout(() => resolve(x), 4000)));
                 await setTimeout(() => {}, 2000);
                 this.logger.info("Exported " + index + " to Elastic Search.")
             } catch (err) {
