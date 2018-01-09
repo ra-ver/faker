@@ -2,7 +2,9 @@ import SchemaLister from './src/list-schemas';
 import winston from 'winston';
 import _ from 'lodash';
 import fs from 'fs';
-import SchemaFaker from 'schema-faker'
+import SchemaFaker from './src/schema-faker';
+import SchemaTransformer from './src/schema-transformer';
+import DataExporter from './src/export-data';
 
 
 /*
@@ -36,9 +38,20 @@ let schemaLister = new SchemaLister(logger);
 schemaLister.list(config.schemas).then(schemas => {
     _.each(schemas, (item, key) => {
         try{
+            if("hcmi-model.json" !== key) return;
             logger.info("Generating fake values for schema: "+ key);
-            let output = new SchemaFaker(item);
-            logger.info(output);
+            let transformer = new SchemaTransformer(logger);
+            transformer.transform(item).then(() => {
+                let output = [];
+                // generate 5000 data points
+                for(var count = 0; count< 5000; count++){
+                    let dataPoint = new SchemaFaker(item);
+                    output.push(dataPoint);
+                }// loop complete
+                let exporter = new DataExporter(logger);
+                //exporter.write("./output", key, output);
+                exporter.writeToES(output);
+            });
         } catch (err){
             logger.error("Error processing schema for : "+ key + ". Details: "+ err);
         }
@@ -48,10 +61,3 @@ schemaLister.list(config.schemas).then(schemas => {
     logger.error(err);
 });
 
-//TODO items
-// update schemas to set all properties to required
-// set submitterids to be non-spaces
-// generate ES put requests with generated json objects
-// generate patterns from a set of sample objects instead of hard coded patterns
-// directly get sample objects from a url
-// constraints on value related to each other

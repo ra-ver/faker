@@ -826,7 +826,7 @@
                 "type": "string"
               }
             },
-            "type": "nested"
+            "type": "array"
           },
           "submitter_id": {
             "type": "string",
@@ -904,6 +904,7 @@
             "faker": "date.past"
           }
         },
+          "required": ["created_datetime","dataset","demographic","diagnosis","id","index_date"],
           "definitions": {
             "fileSize": {
               "type": "integer",
@@ -996,7 +997,7 @@
         "faker": "date.past"
       }
     },
-    "required": ["cases"],
+    "required": ["cases","created_datetime","data_category","data_format","data_type","derived_from","experimental_strategy"],
     "definitions": {
       "fileSize": {
         "type": "integer",
