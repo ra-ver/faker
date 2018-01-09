@@ -9,7 +9,7 @@
       "$ref" : "#/definitions/age"
     },
     "age_at_sampling": {
-      "$ref" : "#/definitions/daysToBirth"
+      "$ref" : "#/definitions/age"
     },
     "gender": {
       "type":"string",
@@ -121,11 +121,13 @@
     "days": {
     "type": "integer",
     "minimum": 10,
+    "maximum": 10950,
     "exclusiveMinimum": true
     },
     "daysToBirth": {
       "type": "integer",
       "minimum": 10950,
+      "maximum": 36500,
       "exclusiveMinimum": true
     },
     "age": {
