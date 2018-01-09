@@ -29,7 +29,7 @@
     },
     "histopathological_biomarkers":{
       "type":"array",
-      "minItems":1,
+      "minItems":2,
       "items":[{
         "type":"string",
         "pattern":"Stains|IHC|FISH"
@@ -37,6 +37,7 @@
     },
     "sequencing_derived_somatic_variants":{
       "type" : "array",
+      "minItems":2,
       "items" : [{
         "type":"string",
         "pattern":"HUGO gene|Protein|BRAF V600E"
@@ -44,6 +45,7 @@
     },
     "cancer_related_somatic_mutations":{
       "type" : "array",
+      "minItems":2,
       "items" : [{
         "type":"string",
         "pattern":"HUGO gene|Protein|BRAF V600E"
@@ -83,7 +85,7 @@
     },
     "therapies":{
       "type":"array",
-      "minItems":1,
+      "minItems":2,
       "items":[{
         "type":"string",
         "pattern":"Surgery|Cytotoxic chemotherapy|Targeted therapy (small molecule inhibitors and targeted antibodies)|Immunotherapy (cellular and immune checkpoint)|Hormonal therapy|Radiation therapy|Other|None"
