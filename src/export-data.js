@@ -21,7 +21,12 @@
 import fs from 'fs';
 import _ from 'lodash';
 import path from 'path';
-import axios from 'axios';
+import elasticsearch from 'elasticsearch';
+import uuid from 'uuid/v4';
+
+let es = new elasticsearch.Client({
+  host: process.env.ES_HOST,
+});
 
 export default class DataExporter {
   constructor(logger) {
@@ -51,24 +56,19 @@ export default class DataExporter {
     );
   }
   writeToES(data) {
-    // writing one by one to avoid hitting payload limit
-    data.forEach(async (item, index) => {
-      try {
-        await this.sleep(index * 200 * Math.random());
-        let response = await axios.post(
-          `${process.env.ES_HOST}/${process.env.ES_INDEX}/${
-            process.env.ES_TYPE
-          }`,
-          item,
-        );
-        this.logger.info('Exported ' + index + ' to Elastic Search.');
-      } catch (err) {
-        this.logger.info('Error exporting ' + index + ' to Elastic Search.');
-        this.logger.error(err);
-      }
-    });
-  }
-  async sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
+    let body = _.flattenDeep(
+      data.map(item => [
+        {
+          index: {
+            _index: process.env.ES_INDEX,
+            _type: process.env.ES_TYPE,
+            _id: uuid(),
+          },
+        },
+        item,
+      ]),
+    );
+
+    es.bulk({ body });
   }
 }
