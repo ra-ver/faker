@@ -18,45 +18,44 @@
  *
  */
 
-"use strict";
 import _ from 'lodash';
-import babelPolyfill from 'babel-polyfill';
 
 export default class SchemaTransformer {
-    constructor(logger){
-        logger == null ? this.logger = console : this.logger = logger;
-    }
-    async transform(schemaObject){
-        if(! schemaObject.hasOwnProperty("type")) return;
-        // if type is object
-        if(schemaObject["type"] == "object"){
-            await this.addRequiredProps(schemaObject, [], true);
-            // transform objects in properties (anything that is not an object or array will be skipped)
-            _.forEach(schemaObject["properties"], item => this.transform(item));
-        }
-        // if type is array
-        else if(schemaObject["type"] == "array"){
-            if(! schemaObject.hasOwnProperty("items"))
-                throw Error("Invalid Schema object. No items found.");
-            _.forEach(schemaObject["items"], item => this.transform(item));
-        }
-    }
-    /*
-         given a JSON object with "properties"
-         adds a required list of properties based on provided requiredprops
-         If no requiredProps are specified then all the props are set to required
-      */
-    async addRequiredProps(schemaObject, requiredProps){
-        if(! schemaObject.hasOwnProperty("properties"))
-            throw Error("Invalid Schema object. No properties found.");
-        if(typeof requiredProps == "undefined" || requiredProps.length == 0) {
-            // add all props as required
-            let props = _.keys(schemaObject["properties"]);
-            if(! schemaObject.hasOwnProperty("required"))
-                    schemaObject["required"] = [];
+  constructor(logger) {
+    this.logger = logger || console;
+  }
 
-            // add required props
-            schemaObject["required"] = _.union(schemaObject["required"], props);
-        }
+  transform(schemaObject) {
+    if (!schemaObject.type) return;
+    // if type is object
+    if (schemaObject.type === 'object') {
+      this.addRequiredProps(schemaObject, []);
+      // transform objects in properties (anything that is not an object or array will be skipped)
+      _.forEach(schemaObject.properties, item => this.transform(item));
+    } else if (schemaObject.type === 'array') {
+      // if type is array
+      if (!schemaObject.items)
+        throw Error('Invalid Schema object. No items found.');
+      _.forEach(schemaObject.items, item => this.transform(item));
     }
+  }
+  /*
+     given a JSON object with "properties"
+     adds a required list of properties based on provided requiredprops
+     If no requiredProps are specified then all the props are set to required
+  */
+  addRequiredProps(schemaObject, requiredProps) {
+    if (!schemaObject.properties) {
+      throw Error('Invalid Schema object. No properties found.');
+    }
+
+    if (typeof requiredProps == 'undefined' || requiredProps.length == 0) {
+      // add all props as required
+      let props = _.keys(schemaObject.properties);
+      if (!schemaObject.required) {
+        // add required props
+        schemaObject.required = _.union(schemaObject.required, props);
+      }
+    }
+  }
 }
