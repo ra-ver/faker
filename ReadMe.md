@@ -6,8 +6,8 @@ Tool for generating Fake JSON data
 
 ## Table of Contents
 
-- [Introduction](#introduction)
-- [Quick Start](#quickstart)
+* [Introduction](#introduction)
+* [Quick Start](#quickstart)
 
 ## Introduction
 
@@ -15,16 +15,19 @@ This program uses npm package: [json-schema-faker](https://www.npmjs.com/package
 
 * All schemas are stored in [schemas folder](schemas)
 * Samples objects that are used to generate some of the schemas are stored in [sample-objects](sample-objects)
-    
-    * Another npm package: [json-schemas-generator](https://www.npmjs.com/package/json-schema-generator) is used to generate such schemas from their corresponding sample obejcts
+
+  * Another npm package: [json-schemas-generator](https://www.npmjs.com/package/json-schema-generator) is used to generate such schemas from their corresponding sample obejcts
 
 ## Quick Start
 
-Run faker using:
+Install:
 
-```node -r babel-register index.js config.json```
+```
+npm i
+```
 
-or
+Run:
 
-```npm start config.json```
-
+```
+ES_HOST=http://localhost:9200 ES_INDEX=models ES_TYPE=models npm start
+```

@@ -18,26 +18,25 @@
  *
  */
 
-"use strict";
 import fs from 'fs';
 import path from 'path';
-import babelPolyfill from 'babel-polyfill';
 
 export default class SchemaLister {
-    constructor(logger){
-        logger == null ? this.logger = console : this.logger = logger;
-    }
-    async list(targetDir){
-        return new Promise((resolve, reject) => {
-            if(targetDir == null){reject("No directory specified.")}
-            if(! fs.existsSync(targetDir)) {reject("Invalid path specified.")};
-            this.logger.info("Scanning folder for JSON schemas: " + targetDir);
-            let output = {};
-            fs.readdirSync(targetDir).forEach(file => {
-                this.logger.info("Going to read file: " + file + " in " + targetDir);
-                output[file] = JSON.parse(fs.readFileSync(targetDir+ path.sep + file));
-            });
-            resolve(output);
-        });
-    }
+  constructor(logger) {
+    this.logger = logger || console;
+  }
+  list(targetDir) {
+    if (!targetDir) return 'No directory specified.';
+    if (!fs.existsSync(targetDir)) return 'Invalid path specified.';
+
+    this.logger.info('Scanning folder for JSON schemas: ' + targetDir);
+
+    return fs.readdirSync(targetDir).reduce((acc, file) => {
+      this.logger.info(`Going to read file: ${file} in ${targetDir}`);
+      return {
+        ...acc,
+        [file]: JSON.parse(fs.readFileSync(targetDir + path.sep + file))
+      }
+    }, {});
+  }
 }

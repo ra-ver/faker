@@ -18,43 +18,57 @@
  *
  */
 
-"use strict";
 import fs from 'fs';
 import _ from 'lodash';
 import path from 'path';
 import axios from 'axios';
-import babelPolyfill from 'babel-polyfill';
 
 export default class DataExporter {
-    constructor(logger){
-        logger == null ? this.logger = console : this.logger = logger;
+  constructor(logger) {
+    this.logger = logger || console;
+  }
+  write(targetDir, inputFileName, data) {
+    if (targetDir == null) {
+      reject('No directory specified.');
     }
-    async write(targetDir, inputFileName, data){
-        if(targetDir == null){reject("No directory specified.")}
-        if(! fs.existsSync(targetDir)) {reject("Invalid path specified.")};
-        let fileName = _.trim(inputFileName, '.json') + "-output.json";
-        fs.writeFile(targetDir + path.sep + fileName, JSON.stringify(data), error =>{
-            if(error) {
-                this.logger.error("Error writing file: " + fileName);
-                this.logger.error(error);
-            } else
-                this.logger.info("Exported data to :" + fileName + " in " + targetDir );
-        });
+
+    if (!fs.existsSync(targetDir)) {
+      reject('Invalid path specified.');
     }
-    async writeToES(data){
-        // writing one by one to avoid hitting payload limit
-        data.forEach(async (item, index) => {
-            try {
-                await this.sleep(index*200*Math.random());
-                let response = await axios.post(`http://142.1.177.54:9200/docs/models`, item);
-                this.logger.info("Exported " + index + " to Elastic Search.");
-            } catch (err) {
-                this.logger.info("Error exporting " + index + " to Elastic Search.");
-                this.logger.error(err);
-            }
-        });
-    }
-    async sleep(ms) {
-        return new Promise(resolve => setTimeout(resolve, ms));
-    }
+
+    let fileName = _.trim(inputFileName, '.json') + '-output.json';
+
+    fs.writeFile(
+      targetDir + path.sep + fileName,
+      JSON.stringify(data),
+      error => {
+        if (error) {
+          this.logger.error('Error writing file: ' + fileName);
+          this.logger.error(error);
+        } else
+          this.logger.info(`Exported data to :${fileName} in ${targetDir}`);
+      },
+    );
+  }
+  writeToES(data) {
+    // writing one by one to avoid hitting payload limit
+    data.forEach(async (item, index) => {
+      try {
+        await this.sleep(index * 200 * Math.random());
+        let response = await axios.post(
+          `${process.env.ES_HOST}/${process.env.ES_INDEX}/${
+            process.env.ES_TYPE
+          }`,
+          item,
+        );
+        this.logger.info('Exported ' + index + ' to Elastic Search.');
+      } catch (err) {
+        this.logger.info('Error exporting ' + index + ' to Elastic Search.');
+        this.logger.error(err);
+      }
+    });
+  }
+  async sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
 }
