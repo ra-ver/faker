@@ -4,438 +4,46 @@
       "cases": {
         "type": "array",
         "minItems" : 2,
-        "items" : {
+        "items" : [{
           "type" : "object",
           "properties": {
-          "created_datetime": {
-            "type": "string",
-            "faker": "date.past"
-          },
-          "dataset": {
-            "properties": {
-              "code": {
-                "type": "string",
-                "minLength": 3,
-                "maxLength": 3
-              },
-              "dbgap_accession_number": {
-                "type": "string",
-                "format": "accession"
-              },
-              "disease_type": {
-                "type": "string",
-                "pattern": "Blood Cancer|Liver cancer|Renal cancer|Breast cancer|Prostate cancer|Lung cancer|Pancreatic cancer|Brain cancer|Biliary Tract cancer|Bladder cancer|Bone cancer|Esophageal cancer|Gastric cancer|Head and Neck cancer|Ovarian cancer|Skin cancer|Soft Tissue cancer|Thyroid cancer|Cervical cancer|Chronic Lymphocytic Leukemia|Chronic Myeloid Disorders|Colon cancer|Colorectal cancer|Endometrial cancer|Malignant Lymphoma|Melanoma|Oral cancer|Pediatric Brain Tumors|Pediatric Solid Tumor|Rare Pancreatic Tumors|Rectal cancer|Uterine cancer"
-              },
-              "id": {
-                "type": "string",
-                "chance" : "guid"
-              },
-              "intended_release_date": {
-                "type": "string",
-                "faker": "date.future"
-              },
-              "name": {
-                "type": "string",
-                "format": "datasetname"
-              },
-              "primary_site": {
-                "type": "string",
-                "pattern" : "Adrenal Gland|Bile Duct|Bladder|Blood|Bone|Bone Marrow|Brain|Breast|Cervix|Colorectal|Esophagus|Eye|Head and Neck|Kidney|Liver|Lung|Lymph Nodes|Nervous System|Ovary|Pancreas|Pleura|Prostate|Skin|Soft Tissue|Stomach|Testis|Thymus|Thyroid|Uter"
-              }
+            "created_datetime": {
+              "type": "string",
+              "faker": "date.past"
             },
-            "type": "object",
-            "definitions": {
-              "fileSize": {
-                "type": "integer",
-                "minimum": 10000000000,
-                "exclusiveMinimum": true
-              },
-              "days": {
-                "type": "integer",
-                "minimum": 10,
-                "exclusiveMinimum": true
-              },
-              "daysToBirth": {
-                "type": "integer",
-                "minimum": 10950,
-                "exclusiveMinimum": true
-              },
-              "birthYear": {
-                "type": "integer",
-                "minimum": 1950,
-                "maximum": 1990,
-                "exclusiveMinimum": true
-              },
-              "deathYear": {
-                "type": "integer",
-                "minimum": 1991,
-                "maximum": 2017,
-                "exclusiveMinimum": true
-              },
-              "margin": {
-                "type": "integer",
-                "minimum": 1,
-                "maximum": 10,
-                "exclusiveMinimum": true
-              },
-              "levels": {
-                "type": "integer",
-                "minimum": 70,
-                "maximum": 150,
-                "exclusiveMinimum": true
-              }
-
-            }
-          },
-          "days_to_lost_to_followup": {
-            "$ref" : "#/definitions/days"
-          },
-          "demographic": {
-            "properties": {
-              "cause_of_death": {
-                "type": "string",
-                "pattern" : "Illness|Other"
-              },
-              "created_datetime": {
-                "type": "string",
-                "faker": "date.past"
-              },
-              "days_to_birth": {
-                "$ref" : "#/definitions/daysToBirth"
-              },
-              "days_to_death": {
-                "$ref" : "#/definitions/days"
-              },
-              "ethnicity": {
-                "type": "string",
-                "pattern": "White|African American|Asian|Black|Arab|Indigenous|Other"
-              },
-              "gender": {
-                "type": "string",
-                "chance":"gender"
-              },
-              "id": {
-                "type": "string",
-                "chance":"guid"
-              },
-              "race": {
-                "type": "string",
-                "pattern": "White|African American|Asian|Black|Arab|Indigenous|Other"
-              },
-              "state": {
-                "type": "string",
-                "pattern" : "1|2|3|4|T1c|IIB|IIC|4A|I|II|Stage1|CT4aN1"
-              },
-              "submitter_id": {
-                "type": "string",
-                "minLength":7
-              },
-              "updated_datetime": {
-                "type": "string",
-                "faker" : "date.past"
-              },
-              "vital_status": {
-                "type": "string",
-                "pattern" : "Alive|Deceased"
-              },
-              "year_of_birth": {
-                "$ref" : "#/definitions/birthYear"
-              },
-              "year_of_death": {
-                "$ref" : "#/definitions/deathYear"
-              }
-            },
-            "type": "object",
-            "definitions": {
-              "fileSize": {
-                "type": "integer",
-                "minimum": 10000000000,
-                "exclusiveMinimum": true
-              },
-              "days": {
-                "type": "integer",
-                "minimum": 10,
-                "exclusiveMinimum": true
-              },
-              "daysToBirth": {
-                "type": "integer",
-                "minimum": 10950,
-                "exclusiveMinimum": true
-              },
-              "birthYear": {
-                "type": "integer",
-                "minimum": 1950,
-                "maximum": 1990,
-                "exclusiveMinimum": true
-              },
-              "deathYear": {
-                "type": "integer",
-                "minimum": 1991,
-                "maximum": 2017,
-                "exclusiveMinimum": true
-              },
-              "margin": {
-                "type": "integer",
-                "minimum": 1,
-                "maximum": 10,
-                "exclusiveMinimum": true
-              },
-              "levels": {
-                "type": "integer",
-                "minimum": 70,
-                "maximum": 150,
-                "exclusiveMinimum": true
-              }
-
-            }
-          },
-          "diagnosis": {
-            "type": "array",
-            "minItems":1,
-            "items":{
-              "type" : "object",
+            "dataset": {
               "properties": {
-                "age_at_diagnosis": {
-                  "type": "integer",
-                  "chance": "age"
-                },
-                "ajcc_clinical_m": {
+                "code": {
                   "type": "string",
-                  "pattern": "Yes|No"
+                  "minLength": 3,
+                  "maxLength": 3
                 },
-                "ajcc_clinical_n": {
+                "dbgap_accession_number": {
                   "type": "string",
-                  "pattern": "Yes|No"
+                  "pattern": "pht[0-9]{6}.v[0-2]{1}.p[0-2]{1}"
                 },
-                "ajcc_clinical_stage": {
+                "disease_type": {
                   "type": "string",
-                  "pattern": "M|N|T"
-                },
-                "ajcc_clinical_t": {
-                  "type": "string",
-                  "pattern": "Yes|No"
-                },
-                "ajcc_pathologic_m": {
-                  "type": "string",
-                  "pattern": "Yes|No"
-                },
-                "ajcc_pathologic_n": {
-                  "type": "string",
-                  "pattern": "Yes|No"
-                },
-                "ajcc_pathologic_stage": {
-                  "type": "string",
-                  "pattern": "M|N|T"
-                },
-                "ajcc_pathologic_t": {
-                  "type": "string",
-                  "pattern": "Yes|No"
-                },
-                "ann_arbor_b_symptoms": {
-                  "type": "string",
-                  "minLength" : 7
-                },
-                "ann_arbor_clinical_stage": {
-                  "type": "string",
-                  "pattern" : "StageI|StateII|StageIII|StageIV"
-                },
-                "ann_arbor_extranodal_involvement": {
-                  "type": "string",
-                  "pattern": "YES|No"
-                },
-                "ann_arbor_pathologic_stage": {
-                  "type": "string",
-                  "pattern" : "StageI|StateII|StageIII|StageIV"
-                },
-                "best_overall_response": {
-                  "type": "string",
-                  "pattern" : "CR|PR|PD|SD"
-                },
-                "burkitt_lymphoma_clinical_variant": {
-                  "type": "string",
-                  "pattern" : "eBL|sBL"
-                },
-                "cause_of_death": {
-                  "type": "string",
-                  "pattern": "Illness|Other"
-                },
-                "circumferential_resection_margin": {
-                  "$ref" : "#/definitions/margin"
-                },
-                "classification_of_tumor": {
-                  "type": "string",
-                  "pattern" : "Blood Cancer|Liver cancer|Renal cancer|Breast cancer|Prostate cancer|Lung cancer|Pancreatic cancer|Brain cancer|Biliary Tract cancer|Bladder cancer|Bone cancer|Esophageal cancer|Gastric cancer|Head and Neck cancer|Ovarian cancer|Skin cancer|Soft Tissue cancer|Thyroid cancer|Cervical cancer|Chronic Lymphocytic Leukemia|Chronic Myeloid Disorders|Colon cancer|Colorectal cancer|Endometrial cancer|Malignant Lymphoma|Melanoma|Oral cancer|Pediatric Brain Tumors|Pediatric Solid Tumor|Rare Pancreatic Tumors|Rectal cancer|Uterine cancer"
-                },
-                "colon_polyps_history": {
-                  "type": "string",
-                  "pattern": "YES|No"
-                },
-                "created_datetime": {
-                  "type": "string",
-                  "faker" : "date.past"
-                },
-                "days_to_best_overall_response": {
-                  "$ref" : "#/definitions/days"
-                },
-                "days_to_birth": {
-                  "$ref" : "#/definitions/daysToBirth"
-                },
-                "days_to_death": {
-                  "$ref" : "#/definitions/days"
-                },
-                "days_to_diagnosis": {
-                  "$ref" : "#/definitions/days"
-                },
-                "days_to_hiv_diagnosis": {
-                  "$ref" : "#/definitions/days"
-                },
-                "days_to_last_follow_up": {
-                  "$ref" : "#/definitions/days"
-                },
-                "days_to_last_known_disease_status": {
-                  "$ref" : "#/definitions/days"
-                },
-                "days_to_new_event": {
-                  "$ref" : "#/definitions/days"
-                },
-                "days_to_recurrence": {
-                  "$ref" : "#/definitions/days"
-                },
-                "figo_stage": {
-                  "type": "string",
-                  "pattern": "Not reported|NA"
-                },
-                "hiv_positive": {
-                  "type": "string",
-                  "pattern":"YES|No"
-                },
-                "hpv_positive_type": {
-                  "type": "string",
-                  "pattern":"NA"
-                },
-                "hpv_status": {
-                  "type": "string",
-                  "pattern":"NA"
+                  "pattern": "Blood Cancer|Liver cancer|Renal cancer|Breast cancer|Prostate cancer|Lung cancer|Pancreatic cancer|Brain cancer|Biliary Tract cancer|Bladder cancer|Bone cancer|Esophageal cancer|Gastric cancer|Head and Neck cancer|Ovarian cancer|Skin cancer|Soft Tissue cancer|Thyroid cancer|Cervical cancer|Chronic Lymphocytic Leukemia|Chronic Myeloid Disorders|Colon cancer|Colorectal cancer|Endometrial cancer|Malignant Lymphoma|Melanoma|Oral cancer|Pediatric Brain Tumors|Pediatric Solid Tumor|Rare Pancreatic Tumors|Rectal cancer|Uterine cancer"
                 },
                 "id": {
                   "type": "string",
                   "chance" : "guid"
                 },
-                "iss_stage": {
+                "intended_release_date": {
                   "type": "string",
-                  "pattern": "Not reported|NA"
+                  "faker": "date.future"
                 },
-                "last_known_disease_status": {
+                "name": {
                   "type": "string",
-                  "pattern": "Not reported|NA"
+                  "pattern": "[A-Z]{4}_[A-Z]{2}_Case"
                 },
-                "laterality": {
+                "primary_site": {
                   "type": "string",
-                  "pattern": "Left|Right|NA"
-                },
-                "ldh_level_at_diagnosis": {
-                  "$ref" : "#/definitions/levels"
-                },
-                "ldh_normal_range_upper": {
-                  "$ref" : "#/definitions/levels"
-                },
-                "lymph_nodes_positive": {
-                  "$ref" : "#/definitions/margin"
-                },
-                "lymphatic_invasion_present": {
-                  "type": "string",
-                  "pattern":"YES|No"
-                },
-                "method_of_diagnosis": {
-                  "type": "string",
-                  "pattern" : "Resection|Biopsy|NA"
-                },
-                "morphology": {
-                  "type": "string",
-                  "pattern":"NA"
-                },
-                "new_event_anatomic_site": {
-                  "type": "string",
-                  "pattern": "NA|Adrenal Gland|Bile Duct|Bladder|Blood|Bone|Bone Marrow|Brain|Breast|Cervix|Colorectal|Esophagus|Eye|Head and Neck|Kidney|Liver|Lung|Lymph Nodes|Nervous System|Ovary|Pancreas|Pleura|Prostate|Skin|Soft Tissue|Stomach|Testis|Thymus|Thyroid|Uter"
-                },
-                "new_event_type": {
-                  "type": "string",
-                  "pattern": "NA|Blood Cancer|Liver cancer|Renal cancer|Breast cancer|Prostate cancer|Lung cancer|Pancreatic cancer|Brain cancer|Biliary Tract cancer|Bladder cancer|Bone cancer|Esophageal cancer|Gastric cancer|Head and Neck cancer|Ovarian cancer|Skin cancer|Soft Tissue cancer|Thyroid cancer|Cervical cancer|Chronic Lymphocytic Leukemia|Chronic Myeloid Disorders|Colon cancer|Colorectal cancer|Endometrial cancer|Malignant Lymphoma|Melanoma|Oral cancer|Pediatric Brain Tumors|Pediatric Solid Tumor|Rare Pancreatic Tumors|Rectal cancer|Uterine cancer"
-                },
-                "overall_survival": {
-                  "$ref" : "#/definitions/daysToBirth"
-                },
-                "perineural_invasion_present": {
-                  "type": "string",
-                  "pattern":"Yes|No"
-                },
-                "primary_diagnosis": {
-                  "type": "string",
-                  "pattern" : "Resection|Biopsy|NA"
-                },
-                "prior_malignancy": {
-                  "type": "string",
-                  "pattern":"Yes|No"
-                },
-                "prior_treatment": {
-                  "type": "string",
-                  "pattern":"Unknown"
-                },
-                "progression_free_survival": {
-                  "$ref" : "#/definitions/daysToBirth"
-                },
-                "progression_free_survival_event": {
-                  "type": "string",
-                  "pattern": "NA|Blood Cancer|Liver cancer|Renal cancer|Breast cancer|Prostate cancer|Lung cancer|Pancreatic cancer|Brain cancer|Biliary Tract cancer|Bladder cancer|Bone cancer|Esophageal cancer|Gastric cancer|Head and Neck cancer|Ovarian cancer|Skin cancer|Soft Tissue cancer|Thyroid cancer|Cervical cancer|Chronic Lymphocytic Leukemia|Chronic Myeloid Disorders|Colon cancer|Colorectal cancer|Endometrial cancer|Malignant Lymphoma|Melanoma|Oral cancer|Pediatric Brain Tumors|Pediatric Solid Tumor|Rare Pancreatic Tumors|Rectal cancer|Uterine cancer"
-                },
-                "progression_or_recurrence": {
-                  "type": "string",
-                  "pattern":"Yes|No"
-                },
-                "residual_disease": {
-                  "type": "string",
-                  "pattern":"Yes|No"
-                },
-                "site_of_resection_or_biopsy": {
-                  "type": "string",
-                  "pattern": "Adrenal Gland|Bile Duct|Bladder|Blood|Bone|Bone Marrow|Brain|Breast|Cervix|Colorectal|Esophagus|Eye|Head and Neck|Kidney|Liver|Lung|Lymph Nodes|Nervous System|Ovary|Pancreas|Pleura|Prostate|Skin|Soft Tissue|Stomach|Testis|Thymus|Thyroid|Uter"
-                },
-                "state": {
-                  "type": "string",
-                  "pattern":"Dormant|Active|Stable|Unknown"
-                },
-                "submitter_id": {
-                  "type": "string",
-                  "minLength":8
-                },
-                "tissue_or_organ_of_origin": {
-                  "type": "string",
-                  "pattern": "Adrenal Gland|Bile Duct|Bladder|Blood|Bone|Bone Marrow|Brain|Breast|Cervix|Colorectal|Esophagus|Eye|Head and Neck|Kidney|Liver|Lung|Lymph Nodes|Nervous System|Ovary|Pancreas|Pleura|Prostate|Skin|Soft Tissue|Stomach|Testis|Thymus|Thyroid|Uter"
-                },
-                "tumor_grade": {
-                  "type": "string",
-                  "pattern": "I|II|III|IV|NA"
-                },
-                "tumor_stage": {
-                  "type": "string",
-                  "pattern": "StageI|StageII|StageIII|StageIV|NA"
-                },
-                "updated_datetime": {
-                  "type": "string",
-                  "faker": "date.past"
-                },
-                "vascular_invasion_present": {
-                  "type": "string",
-                  "pattern":"Yes|No"
-                },
-                "vital_status": {
-                  "type": "string",
-                  "pattern":"Deceased|Alive"
-                },
-                "year_of_diagnosis": {
-                  "$ref" : "#/definitions/deathYear"
+                  "pattern" : "Adrenal Gland|Bile Duct|Bladder|Blood|Bone|Bone Marrow|Brain|Breast|Cervix|Colorectal|Esophagus|Eye|Head and Neck|Kidney|Liver|Lung|Lymph Nodes|Nervous System|Ovary|Pancreas|Pleura|Prostate|Skin|Soft Tissue|Stomach|Testis|Thymus|Thyroid|Uter"
                 }
               },
+              "type": "object",
               "definitions": {
                 "fileSize": {
                   "type": "integer",
@@ -478,432 +86,709 @@
                 }
 
               }
-            }
-          },
-          "disease_type": {
-            "type": "string",
-            "pattern" : "Blood Cancer|Liver cancer|Renal cancer|Breast cancer|Prostate cancer|Lung cancer|Pancreatic cancer|Brain cancer|Biliary Tract cancer|Bladder cancer|Bone cancer|Esophageal cancer|Gastric cancer|Head and Neck cancer|Ovarian cancer|Skin cancer|Soft Tissue cancer|Thyroid cancer|Cervical cancer|Chronic Lymphocytic Leukemia|Chronic Myeloid Disorders|Colon cancer|Colorectal cancer|Endometrial cancer|Malignant Lymphoma|Melanoma|Oral cancer|Pediatric Brain Tumors|Pediatric Solid Tumor|Rare Pancreatic Tumors|Rectal cancer|Uterine cancer"
-          },
-          "id": {
-            "type": "string",
-            "chance": "guid"
-          },
-          "index_date": {
-            "type": "string",
-            "faker": "date.past"
-          },
-          "lost_to_followup": {
-            "type": "string",
-            "faker": "name.findName"
-          },
-          "primary_site": {
-            "type": "string",
-            "pattern" : "Adrenal Gland|Bile Duct|Bladder|Blood|Bone|Bone Marrow|Brain|Breast|Cervix|Colorectal|Esophagus|Eye|Head and Neck|Kidney|Liver|Lung|Lymph Nodes|Nervous System|Ovary|Pancreas|Pleura|Prostate|Skin|Soft Tissue|Stomach|Testis|Thymus|Thyroid|Uter"
-          },
-          "program": {
-            "properties": {
-              "dbgap_accession_number": {
-                "type": "string"
+            },
+            "days_to_lost_to_followup": {
+              "$ref" : "#/definitions/days"
+            },
+            "demographic": {
+              "properties": {
+                "cause_of_death": {
+                  "type": "string",
+                  "pattern" : "Illness|Other"
+                },
+                "created_datetime": {
+                  "type": "string",
+                  "faker": "date.past"
+                },
+                "ethnicity": {
+                  "type": "string",
+                  "pattern": "White|African American|Asian|Black|Arab|Indigenous|Other"
+                },
+                "gender": {
+                  "type": "string",
+                  "chance":"gender"
+                },
+                "id": {
+                  "type": "string",
+                  "chance":"guid"
+                },
+                "race": {
+                  "type": "string",
+                  "pattern": "White|African American|Asian|Black|Arab|Indigenous|Other"
+                },
+                "state": {
+                  "type": "string",
+                  "pattern" : "1|2|3|4|T1c|IIB|IIC|4A|I|II|Stage1|CT4aN1"
+                },
+                "submitter_id": {
+                  "type": "string",
+                  "minLength":7
+                },
+                "updated_datetime": {
+                  "type": "string",
+                  "faker" : "date.past"
+                },
+                "vital_status": {
+                  "type": "string",
+                  "pattern" : "Alive|Deceased"
+                },
+                "age_at_last_follow_up_days": {
+                  "$ref" : "#/definitions/days"
+                }
               },
-              "id": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              },
-              "type": {
-                "type": "string"
+              "type": "object",
+              "definitions": {
+                "fileSize": {
+                  "type": "integer",
+                  "minimum": 10000000000,
+                  "exclusiveMinimum": true
+                },
+                "days": {
+                  "type": "integer",
+                  "minimum": 10,
+                  "exclusiveMinimum": true
+                },
+                "daysToBirth": {
+                  "type": "integer",
+                  "minimum": 10950,
+                  "exclusiveMinimum": true
+                },
+                "birthYear": {
+                  "type": "integer",
+                  "minimum": 1950,
+                  "maximum": 1990,
+                  "exclusiveMinimum": true
+                },
+                "deathYear": {
+                  "type": "integer",
+                  "minimum": 1991,
+                  "maximum": 2017,
+                  "exclusiveMinimum": true
+                },
+                "margin": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 10,
+                  "exclusiveMinimum": true
+                },
+                "levels": {
+                  "type": "integer",
+                  "minimum": 70,
+                  "maximum": 150,
+                  "exclusiveMinimum": true
+                }
+
               }
             },
-            "type": "object"
-          },
-          "sample": {
-            "properties": {
-              "aliquot": {
+            "diagnosis": {
+              "type": "array",
+              "minItems":1,
+              "items":[{
+                "type" : "object",
                 "properties": {
-                  "a260_a280_ratio": {
-                    "type": "float"
-                  },
-                  "aliquot_quantity": {
-                    "type": "float"
-                  },
-                  "aliquot_volume": {
-                    "type": "float"
-                  },
-                  "amount": {
-                    "type": "float"
-                  },
-                  "analyte_quantity": {
-                    "type": "float"
-                  },
-                  "analyte_type": {
-                    "type": "string"
-                  },
-                  "analyte_volume": {
-                    "type": "float"
-                  },
-                  "concentration": {
-                    "type": "float"
+                  "age_at_diagnosis_days": {
+                    "$ref" : "#/definitions/days"
                   },
                   "created_datetime": {
-                    "type": "string"
+                    "type": "string",
+                    "faker" : "date.past"
                   },
                   "id": {
-                    "type": "string"
+                    "type": "string",
+                    "chance" : "guid"
                   },
-                  "normal_tumor_genotype_snp_match": {
-                    "type": "string"
+                  "primary_anatomic_site": {
+                    "type": "string",
+                    "pattern": "NA|Adrenal Gland|Bile Duct|Bladder|Blood|Bone|Bone Marrow|Brain|Breast|Cervix|Colorectal|Esophagus|Eye|Head and Neck|Kidney|Liver|Lung|Lymph Nodes|Nervous System|Ovary|Pancreas|Pleura|Prostate|Skin|Soft Tissue|Stomach|Testis|Thymus|Thyroid|Uter"
                   },
-                  "read_group": {
-                    "properties": {
-                      "RIN": {
-                        "type": "float"
-                      },
-                      "adapter_name": {
-                        "type": "string"
-                      },
-                      "adapter_sequence": {
-                        "type": "string"
-                      },
-                      "base_caller_name": {
-                        "type": "string"
-                      },
-                      "base_caller_version": {
-                        "type": "string"
-                      },
-                      "created_datetime": {
-                        "type": "string"
-                      },
-                      "experiment_name": {
-                        "type": "string"
-                      },
-                      "flow_cell_barcode": {
-                        "type": "string"
-                      },
-                      "id": {
-                        "type": "string"
-                      },
-                      "includes_spike_ins": {
-                        "type": "boolean"
-                      },
-                      "instrument_model": {
-                        "type": "string"
-                      },
-                      "is_paired_end": {
-                        "type": "boolean"
-                      },
-                      "library_name": {
-                        "type": "string"
-                      },
-                      "library_preparation_kit_catalog_number": {
-                        "type": "string"
-                      },
-                      "library_preparation_kit_name": {
-                        "type": "string"
-                      },
-                      "library_preparation_kit_vendor": {
-                        "type": "string"
-                      },
-                      "library_preparation_kit_version": {
-                        "type": "string"
-                      },
-                      "library_selection": {
-                        "type": "string"
-                      },
-                      "library_strand": {
-                        "type": "string"
-                      },
-                      "library_strategy": {
-                        "type": "string"
-                      },
-                      "platform": {
-                        "type": "string"
-                      },
-                      "read_group_name": {
-                        "type": "string"
-                      },
-                      "read_length": {
-                        "type": "integer"
-                      },
-                      "sequencing_center": {
-                        "type": "string"
-                      },
-                      "sequencing_date": {
-                        "type": "string"
-                      },
-                      "size_selection_range": {
-                        "type": "string"
-                      },
-                      "spike_ins_concentration": {
-                        "type": "string"
-                      },
-                      "spike_ins_fasta": {
-                        "type": "string"
-                      },
-                      "state": {
-                        "type": "string"
-                      },
-                      "submitter_id": {
-                        "type": "string"
-                      },
-                      "target_capture_kit_catalog_number": {
-                        "type": "string"
-                      },
-                      "target_capture_kit_name": {
-                        "type": "string"
-                      },
-                      "target_capture_kit_target_region": {
-                        "type": "string"
-                      },
-                      "target_capture_kit_vendor": {
-                        "type": "string"
-                      },
-                      "target_capture_kit_version": {
-                        "type": "string"
-                      },
-                      "to_trim_adapter_sequence": {
-                        "type": "boolean"
-                      },
-                      "updated_datetime": {
-                        "type": "string"
-                      }
-                    },
-                    "type": "nested"
-                  },
-                  "ribosomal_rna_28s_16s_ratio": {
-                    "type": "float"
-                  },
-                  "shipment_date": {
-                    "type": "string"
-                  },
-                  "shipment_destination": {
-                    "type": "string"
-                  },
-                  "shipment_origin": {
-                    "type": "string"
-                  },
-                  "source_center": {
-                    "type": "string"
-                  },
-                  "spectrophotometer_method": {
-                    "type": "string"
+                  "primary_diagnosis": {
+                    "type": "string",
+                    "pattern" : "Resection|Biopsy|NA"
                   },
                   "state": {
-                    "type": "string"
+                    "type": "string",
+                    "pattern":"Dormant|Active|Stable|Unknown"
                   },
                   "submitter_id": {
-                    "type": "string"
+                    "type": "string",
+                    "pattern":"[0-9]{5}_diagnosis"
                   },
                   "updated_datetime": {
-                    "type": "string"
-                  },
-                  "well_number": {
-                    "type": "string"
+                    "type": "string",
+                    "faker": "date.past"
                   }
                 },
-                "type": "nested"
-              },
-              "biospecimen_anatomic_site": {
-                "type": "string"
-              },
-              "composition": {
-                "type": "string"
-              },
-              "created_datetime": {
-                "type": "string"
-              },
-              "current_weight": {
-                "type": "float"
-              },
-              "days_to_collection": {
-                "type": "integer"
-              },
-              "days_to_sample_procurement": {
-                "type": "integer"
-              },
-              "diagnosis_pathologically_confirmed": {
-                "type": "string"
-              },
-              "id": {
-                "type": "string"
-              },
-              "initial_weight": {
-                "type": "float"
-              },
-              "intermediate_dimension": {
-                "type": "float"
-              },
-              "longest_dimension": {
-                "type": "float"
-              },
-              "method_of_sample_procurement": {
-                "type": "string"
-              },
-              "preservation_method": {
-                "type": "string"
-              },
-              "shortest_dimension": {
-                "type": "float"
-              },
-              "slide": {
+                "definitions": {
+                  "fileSize": {
+                    "type": "integer",
+                    "minimum": 10000000000,
+                    "exclusiveMinimum": true
+                  },
+                  "days": {
+                    "type": "integer",
+                    "minimum": 10,
+                    "exclusiveMinimum": true
+                  },
+                  "daysToBirth": {
+                    "type": "integer",
+                    "minimum": 10950,
+                    "exclusiveMinimum": true
+                  },
+                  "birthYear": {
+                    "type": "integer",
+                    "minimum": 1950,
+                    "maximum": 1990,
+                    "exclusiveMinimum": true
+                  },
+                  "deathYear": {
+                    "type": "integer",
+                    "minimum": 1991,
+                    "maximum": 2017,
+                    "exclusiveMinimum": true
+                  },
+                  "margin": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 10,
+                    "exclusiveMinimum": true
+                  },
+                  "levels": {
+                    "type": "integer",
+                    "minimum": 70,
+                    "maximum": 150,
+                    "exclusiveMinimum": true
+                  }
+
+                }
+              }]
+            },
+            "disease_type": {
+              "type": "string",
+              "pattern" : "Blood Cancer|Liver cancer|Renal cancer|Breast cancer|Prostate cancer|Lung cancer|Pancreatic cancer|Brain cancer|Biliary Tract cancer|Bladder cancer|Bone cancer|Esophageal cancer|Gastric cancer|Head and Neck cancer|Ovarian cancer|Skin cancer|Soft Tissue cancer|Thyroid cancer|Cervical cancer|Chronic Lymphocytic Leukemia|Chronic Myeloid Disorders|Colon cancer|Colorectal cancer|Endometrial cancer|Malignant Lymphoma|Melanoma|Oral cancer|Pediatric Brain Tumors|Pediatric Solid Tumor|Rare Pancreatic Tumors|Rectal cancer|Uterine cancer"
+            },
+            "id": {
+              "type": "string",
+              "chance": "guid"
+            },
+            "index_date": {
+              "type": "string",
+              "faker": "date.past"
+            },
+            "lost_to_followup": {
+              "type": "string",
+              "faker": "name.findName"
+            },
+            "primary_site": {
+              "type": "string",
+              "pattern" : "Adrenal Gland|Bile Duct|Bladder|Blood|Bone|Bone Marrow|Brain|Breast|Cervix|Colorectal|Esophagus|Eye|Head and Neck|Kidney|Liver|Lung|Lymph Nodes|Nervous System|Ovary|Pancreas|Pleura|Prostate|Skin|Soft Tissue|Stomach|Testis|Thymus|Thyroid|Uter"
+            },
+            "program": {
+              "type": "object",
+              "properties": {
+                "dbgap_accession_number": {
+                  "type": "string",
+                  "pattern": "[a-z]{3}[0-9]{6}.v[0-4]{1}.p[0-2]{1}"
+                },
+                "id": {
+                  "type": "string",
+                  "chance": "guid"
+                },
+                "name": {
+                  "type": "string",
+                  "pattern": "[A-Z]{4}-[a-z]{4}"
+                },
+                "type": {
+                  "type": "string",
+                  "pattern": "NA"
+                }
+              }
+            },
+            "sample": {
+              "type": "array",
+              "minItems":2,
+              "items":[{
+                "type": "object",
                 "properties": {
+                  "aliquot": {
+                    "type": "array",
+                    "minItems":3,
+                    "items":[{
+                        "type": "object",
+                        "properties": {
+                            "a260_a280_ratio": {
+                              "type": "integer"
+                            },
+                            "aliquot_quantity": {
+                              "type": "integer"
+                            },
+                            "aliquot_volume": {
+                              "type": "integer"
+                            },
+                            "amount": {
+                              "type": "integer"
+                            },
+                            "analyte_quantity": {
+                              "type": "integer"
+                            },
+                            "analyte_type": {
+                              "type": "string",
+                              "pattern" : "DNA|RNA"
+                            },
+                            "analyte_volume": {
+                              "type": "integer"
+                            },
+                            "concentration": {
+                              "type": "integer"
+                            },
+                            "created_datetime": {
+                              "type": "string",
+                              "faker":"date.past"
+                            },
+                            "id": {
+                              "type": "string",
+                              "chance":"guid"
+                            },
+                            "normal_tumor_genotype_snp_match": {
+                              "type": "string",
+                              "pattern":"S|N|P"
+                            },
+                            "read_group": {
+                              "type": "array",
+                              "minItems":1,
+                              "items":[{
+                                "type": "object",
+                                "properties": {
+                                  "RIN": {
+                                    "type": "integer"
+                                  },
+                                  "adapter_name": {
+                                    "type": "string",
+                                    "pattern": "[A-Z]{4}-[a-z]{4}"
+                                  },
+                                  "adapter_sequence": {
+                                    "type": "string",
+                                    "pattern":"NA"
+                                  },
+                                  "base_caller_name": {
+                                    "type": "string",
+                                    "pattern":"NA"
+                                  },
+                                  "base_caller_version": {
+                                    "type": "string",
+                                    "pattern":"NA"
+                                  },
+                                  "created_datetime": {
+                                    "type": "string",
+                                    "faker":"date.past"
+                                  },
+                                  "experiment_name": {
+                                    "type": "string",
+                                    "pattern":"RP-[0-9]{4}_CG00[0-9]{2}-[0-9]{4}_v1_WGS_GCP"
+                                  },
+                                  "flow_cell_barcode": {
+                                    "type": "string",
+                                    "pattern":"NA"
+                                  },
+                                  "id": {
+                                    "type": "string",
+                                    "chance":"guid"
+                                  },
+                                  "includes_spike_ins": {
+                                    "type": "boolean"
+                                  },
+                                  "instrument_model": {
+                                    "type": "string",
+                                    "pattern":"NA"
+                                  },
+                                  "is_paired_end": {
+                                    "type": "boolean"
+                                  },
+                                  "library_name": {
+                                    "type": "string",
+                                    "pattern":"[0-9]{10}_Illumina_P[0-9]{1}-Yewow_P[0-9]{1}-Cotax"
+                                  },
+                                  "library_preparation_kit_catalog_number": {
+                                    "type": "string",
+                                    "pattern":"NA"
+                                  },
+                                  "library_preparation_kit_name": {
+                                    "type": "string",
+                                    "pattern":"NA"
+                                  },
+                                  "library_preparation_kit_vendor": {
+                                    "type": "string",
+                                    "pattern":"NA"
+                                  },
+                                  "library_preparation_kit_version": {
+                                    "type": "string",
+                                    "pattern":"NA"
+                                  },
+                                  "library_selection": {
+                                    "type": "string",
+                                    "pattern":"NA"
+                                  },
+                                  "library_strand": {
+                                    "type": "string",
+                                    "pattern":"NA"
+                                  },
+                                  "library_strategy": {
+                                    "type": "string",
+                                    "pattern":"WGS|WXS|WGA|AMPLICON|RNA-Seq"
+                                  },
+                                  "platform": {
+                                    "type": "string",
+                                    "pattern":"Illumina|NA"
+                                  },
+                                  "read_group_name": {
+                                    "type": "string",
+                                    "pattern":"HL[0-9]{1}W[0-9]{1}.[0-9]{1}"
+                                  },
+                                  "read_length": {
+                                    "$ref" : "#/definitions/readLength"
+                                  },
+                                  "sequencing_center": {
+                                    "type": "string",
+                                    "pattern":"Broad Institute"
+                                  },
+                                  "sequencing_date": {
+                                    "type": "string",
+                                    "faker":"date.past"
+                                  },
+                                  "size_selection_range": {
+                                    "type": "string",
+                                    "pattern":"NA"
+                                  },
+                                  "spike_ins_concentration": {
+                                    "type": "string",
+                                    "pattern":"NA"
+                                  },
+                                  "spike_ins_fasta": {
+                                    "type": "string",
+                                    "pattern":"NA"
+                                  },
+                                  "state": {
+                                    "type": "string",
+                                    "pattern":"NA"
+                                  },
+                                  "submitter_id": {
+                                    "type": "string",
+                                    "pattern":"gs:\/\/[a-z]{2}-[0-9]{3}[a-z]{1}[0-9]{1}cfc-[0-9]{1}[a-z]{1}[0-9]{1}[a-z]{1}-[0-9]{3}f-[0-9]{1}[a-z]{1}[0-9]{1}[a-z]{1}-[0-9]{1}[a-z]{1}[0-9]{1}[a-z]{1}[0-9]{6}[a-z]{2}\/[A-za-z-]{39}\/RP-[0-9]{4}\/WGS\/CG0000-[0-9]{4}\/v1\/CG0000-[0-9]{4}.cram"
+                                  },
+                                  "target_capture_kit_catalog_number": {
+                                    "type": "string",
+                                    "pattern":"NA"
+                                  },
+                                  "target_capture_kit_name": {
+                                    "type": "string",
+                                    "pattern":"NA"
+                                  },
+                                  "target_capture_kit_target_region": {
+                                    "type": "string",
+                                    "pattern":"NA"
+                                  },
+                                  "target_capture_kit_vendor": {
+                                    "type": "string",
+                                    "pattern":"NA"
+                                  },
+                                  "target_capture_kit_version": {
+                                    "type": "string"
+                                  },
+                                  "to_trim_adapter_sequence": {
+                                    "type": "boolean"
+                                  },
+                                  "updated_datetime": {
+                                    "type": "string",
+                                    "faker":"date.past"
+                                  }
+                                },
+                                "definitions": {
+                                  "readLength": {
+                                    "type": "integer",
+                                    "minimum": 100,
+                                    "maximum": 1000,
+                                    "exclusiveMinimum": true
+                                  }
+                                }
+                              }]
+                            },
+                            "ribosomal_rna_28s_16s_ratio": {
+                              "type": "integer"
+                            },
+                            "shipment_date": {
+                              "type": "string",
+                              "faker":"date.past"
+                            },
+                            "shipment_destination": {
+                              "type": "string",
+                              "pattern":"Broad Institute"
+                            },
+                            "shipment_origin": {
+                              "type": "string",
+                              "pattern":"CORIELL"
+                            },
+                            "source_center": {
+                              "type": "string",
+                              "pattern":"NA"
+                            },
+                            "spectrophotometer_method": {
+                              "type": "string",
+                              "pattern":"NA"
+                            },
+                            "state": {
+                              "type": "string",
+                              "pattern":"NA"
+                            },
+                            "submitter_id": {
+                              "type": "string",
+                              "pattern":"SM-[A-Z]{2}4[A-Z]{2}"
+                            },
+                            "updated_datetime": {
+                              "type": "string",
+                              "faker":"date.past"
+                            },
+                            "well_number": {
+                              "type": "string",
+                              "pattern":"NA"
+                            }
+                          }
+                    }]
+                  },
+                  "biospecimen_anatomic_site": {
+                    "type": "string",
+                    "pattern":"NA"
+                  },
+                  "composition": {
+                    "type": "string",
+                    "pattern":"Peripheral Whole Blood"
+                  },
                   "created_datetime": {
-                    "type": "string"
+                    "type": "string",
+                    "faker":"date.past"
                   },
-                  "id": {
-                    "type": "string"
-                  },
-                  "number_proliferating_cells": {
+                  "current_weight": {
                     "type": "integer"
                   },
-                  "percent_eosinophil_infiltration": {
-                    "type": "float"
+                  "days_to_collection": {
+                    "$ref" : "#/definitions/days"
                   },
-                  "percent_granulocyte_infiltration": {
-                    "type": "float"
+                  "days_to_sample_procurement": {
+                    "$ref" : "#/definitions/days"
                   },
-                  "percent_inflam_infiltration": {
-                    "type": "float"
+                  "diagnosis_pathologically_confirmed": {
+                    "type": "string",
+                    "pattern":"YES|NO"
                   },
-                  "percent_lymphocyte_infiltration": {
-                    "type": "float"
+                  "id": {
+                    "type": "string",
+                    "chance":"guid"
                   },
-                  "percent_monocyte_infiltration": {
-                    "type": "float"
+                  "initial_weight": {
+                    "type": "integer"
                   },
-                  "percent_necrosis": {
-                    "type": "float"
+                  "intermediate_dimension": {
+                    "type": "integer"
                   },
-                  "percent_neutrophil_infiltration": {
-                    "type": "float"
+                  "longest_dimension": {
+                    "type": "integer"
                   },
-                  "percent_normal_cells": {
-                    "type": "float"
+                  "method_of_sample_procurement": {
+                    "type": "string",
+                    "pattern" : "NA"
                   },
-                  "percent_stromal_cells": {
-                    "type": "float"
+                  "preservation_method": {
+                    "type": "string",
+                    "pattern" : "NA"
                   },
-                  "percent_tumor_cells": {
-                    "type": "float"
+                  "shortest_dimension": {
+                    "type": "integer"
                   },
-                  "percent_tumor_nuclei": {
-                    "type": "float"
-                  },
-                  "section_location": {
-                    "type": "string"
+                  "slide": {
+                    "type": "array",
+                    "minItems":1,
+                    "items":[{
+                      "type": "object",
+                      "properties": {
+                        "created_datetime": {
+                          "type": "string",
+                          "faker":"date.past"
+                        },
+                        "id": {
+                          "type": "string",
+                          "chance":"guid"
+                        },
+                        "number_proliferating_cells": {
+                          "type": "integer"
+                        },
+                        "percent_eosinophil_infiltration": {
+                          "type": "integer"
+                        },
+                        "percent_granulocyte_infiltration": {
+                          "type": "integer"
+                        },
+                        "percent_inflam_infiltration": {
+                          "type": "integer"
+                        },
+                        "percent_lymphocyte_infiltration": {
+                          "type": "integer"
+                        },
+                        "percent_monocyte_infiltration": {
+                          "type": "integer"
+                        },
+                        "percent_necrosis": {
+                          "type": "integer"
+                        },
+                        "percent_neutrophil_infiltration": {
+                          "type": "integer"
+                        },
+                        "percent_normal_cells": {
+                          "type": "integer"
+                        },
+                        "percent_stromal_cells": {
+                          "type": "integer"
+                        },
+                        "percent_tumor_cells": {
+                          "type": "integer"
+                        },
+                        "percent_tumor_nuclei": {
+                          "type": "integer"
+                        },
+                        "section_location": {
+                          "type": "string",
+                          "pattern":"NA"
+                        },
+                        "state": {
+                          "type": "string",
+                          "pattern":"NA"
+                        },
+                        "submitter_id": {
+                          "type": "string",
+                          "pattern":"NA"
+                        },
+                        "updated_datetime": {
+                          "type": "string",
+                          "faker":"date.past"
+                        }
+                      }
+                    }]
                   },
                   "state": {
-                    "type": "string"
+                    "type": "string",
+                    "pattern":"Validated|Not Validated|NA"
                   },
                   "submitter_id": {
-                    "type": "string"
+                    "type": "string",
+                    "pattern":"SM-[A-Z]{2}[0-9]{1}[A-Z]{2}"
+                  },
+                  "time_between_clamping_and_freezing": {
+                    "type": "integer"
+                  },
+                  "time_between_excision_and_freezing": {
+                    "type": "integer"
+                  },
+                  "tissue_type": {
+                    "type": "string",
+                    "pattern":"Normal|NA"
+                  },
+                  "tumor_descriptor": {
+                    "type": "string",
+                    "pattern":"NA"
                   },
                   "updated_datetime": {
-                    "type": "string"
+                    "type": "string",
+                    "faker":"date.past"
                   }
                 },
-                "type": "nested"
-              },
-              "state": {
-                "type": "string"
-              },
-              "submitter_id": {
-                "type": "string"
-              },
-              "time_between_clamping_and_freezing": {
-                "type": "float"
-              },
-              "time_between_excision_and_freezing": {
-                "type": "float"
-              },
-              "tissue_type": {
-                "type": "string"
-              },
-              "tumor_descriptor": {
-                "type": "string"
-              },
-              "updated_datetime": {
-                "type": "string"
-              }
+                "definitions": {
+                  "days": {
+                    "type": "integer",
+                    "minimum": 10,
+                    "exclusiveMinimum": true
+                  },
+                  "readLength": {
+                    "type": "integer",
+                    "minimum": 100,
+                    "maximum": 1000,
+                    "exclusiveMinimum": true
+                  }
+                }
+              }]
             },
-            "type": "array"
-          },
-          "submitter_id": {
-            "type": "string",
-            "minLength": 8
-          },
-          "trio": {
-            "properties": {
-              "created_datetime": {
-                "type": "string",
-                "faker": "date.past"
-              },
-              "id": {
-                "type": "string",
-                "chance": "guid"
-              },
-              "state": {
-                "type": "string",
-                "pattern": "Deceased|Alive"
-              },
-              "submitter_id": {
-                "type": "string",
-                "minLength":7
-              },
-              "updated_datetime": {
-                "type": "string",
-                "faker": "date.past"
-              }
+            "submitter_id": {
+              "type": "string",
+              "pattern": "[0-9]{8}"
             },
-            "type": "object",
-            "definitions": {
-              "fileSize": {
-                "type": "integer",
-                "minimum": 10000000000,
-                "exclusiveMinimum": true
+            "trio": {
+              "properties": {
+                "created_datetime": {
+                  "type": "string",
+                  "faker": "date.past"
+                },
+                "id": {
+                  "type": "string",
+                  "chance": "guid"
+                },
+                "state": {
+                  "type": "string",
+                  "pattern": "Deceased|Alive"
+                },
+                "submitter_id": {
+                  "type": "string",
+                  "minLength":7
+                },
+                "updated_datetime": {
+                  "type": "string",
+                  "faker": "date.past"
+                }
               },
-              "days": {
-                "type": "integer",
-                "minimum": 10,
-                "exclusiveMinimum": true
-              },
-              "daysToBirth": {
-                "type": "integer",
-                "minimum": 10950,
-                "exclusiveMinimum": true
-              },
-              "birthYear": {
-                "type": "integer",
-                "minimum": 1950,
-                "maximum": 1990,
-                "exclusiveMinimum": true
-              },
-              "deathYear": {
-                "type": "integer",
-                "minimum": 1991,
-                "maximum": 2017,
-                "exclusiveMinimum": true
-              },
-              "margin": {
-                "type": "integer",
-                "minimum": 1,
-                "maximum": 10,
-                "exclusiveMinimum": true
-              },
-              "levels": {
-                "type": "integer",
-                "minimum": 70,
-                "maximum": 150,
-                "exclusiveMinimum": true
-              }
+              "type": "object",
+              "definitions": {
+                "fileSize": {
+                  "type": "integer",
+                  "minimum": 10000000000,
+                  "exclusiveMinimum": true
+                },
+                "days": {
+                  "type": "integer",
+                  "minimum": 10,
+                  "exclusiveMinimum": true
+                },
+                "daysToBirth": {
+                  "type": "integer",
+                  "minimum": 10950,
+                  "exclusiveMinimum": true
+                },
+                "birthYear": {
+                  "type": "integer",
+                  "minimum": 1950,
+                  "maximum": 1990,
+                  "exclusiveMinimum": true
+                },
+                "deathYear": {
+                  "type": "integer",
+                  "minimum": 1991,
+                  "maximum": 2017,
+                  "exclusiveMinimum": true
+                },
+                "margin": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 10,
+                  "exclusiveMinimum": true
+                },
+                "levels": {
+                  "type": "integer",
+                  "minimum": 70,
+                  "maximum": 150,
+                  "exclusiveMinimum": true
+                }
 
+              }
+            },
+            "updated_datetime": {
+              "type": "string",
+              "faker": "date.past"
             }
           },
-          "updated_datetime": {
-            "type": "string",
-            "faker": "date.past"
-          }
-        },
           "required": ["created_datetime","dataset","demographic","diagnosis","id","index_date"],
           "definitions": {
             "fileSize": {
@@ -947,7 +832,7 @@
             }
 
           }
-        }
+        }]
       },
       "created_datetime": {
         "type": "string",
@@ -990,7 +875,7 @@
       },
       "submitter_id": {
         "type": "string",
-        "minLength": 7
+        "pattern":"gs:\/\/[a-z]{2}-[0-9]{3}[a-z]{1}[0-9]{1}cfc-[0-9]{1}[a-z]{1}[0-9]{1}[a-z]{1}-[0-9]{3}f-[0-9]{1}[a-z]{1}[0-9]{1}[a-z]{1}-[0-9]{1}[a-z]{1}[0-9]{1}[a-z]{1}[0-9]{6}[a-z]{2}\/[A-Za-z-]{39}\/RP-[0-9]{4}\/WGS\/CG0000-[0-9]{4}\/v1\/CG0000-[0-9]{4}.cram"
       },
       "updated_datetime": {
         "type": "string",
@@ -1002,6 +887,12 @@
       "fileSize": {
         "type": "integer",
         "minimum": 10000000000,
+        "exclusiveMinimum": true
+      },
+      "readLength": {
+        "type": "integer",
+        "minimum": 100,
+        "maximum": 1000,
         "exclusiveMinimum": true
       },
       "days": {

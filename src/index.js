@@ -1,6 +1,5 @@
 import 'babel-polyfill';
 import winston from 'winston';
-import fs from 'fs';
 import SchemaLister from './list-schemas';
 import SchemaFaker from './schema-faker';
 import SchemaTransformer from './schema-transformer';
@@ -22,8 +21,8 @@ let schemas = schemaLister.list('./schemas');
 
 Object.entries(schemas).forEach(([key, item]) => {
   try {
-    // only handle hcmi right now
-    if (key !== 'hcmi-model.json') return;
+    // handle a specific schema
+    if (key !== 'es-file-model.json') return;
 
     logger.info('Generating fake values for schema: ' + key);
 
@@ -44,3 +43,4 @@ Object.entries(schemas).forEach(([key, item]) => {
     logger.error(`Error processing schema for : ${key}. Details: ${err}`);
   }
 });
+

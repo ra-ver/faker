@@ -70,5 +70,6 @@ export default class DataExporter {
     );
 
     es.bulk({ body });
+    this.logger.info(`Exported ${data.length} records to :${process.env.ES_HOST}/${process.env.ES_INDEX}/${process.env.ES_TYPE}`);
   }
 }
