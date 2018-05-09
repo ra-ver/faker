@@ -9,7 +9,10 @@ const tsFormat = () => new Date().toISOString();
 
 let logger = new winston.Logger({
   transports: [
-    new winston.transports.Console({ timestamp: tsFormat, colorize: true }),
+    new winston.transports.Console({
+      timestamp: tsFormat,
+      colorize: true
+    }),
   ],
 });
 
@@ -43,4 +46,3 @@ Object.entries(schemas).forEach(([key, item]) => {
     logger.error(`Error processing schema for : ${key}. Details: ${err}`);
   }
 });
-

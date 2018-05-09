@@ -25,7 +25,7 @@
     },
     "model_type":{
       "type":"string",
-      "pattern":"3-D: Organoid|3-D: Other e.g. neurosphere, air-liquid interface, etc.|2-D: Conditionally reprogrammed cells|2-D: Adherent|2-D: Suspension"
+      "pattern":"3-D: Organoid|3-D: Other|2-D: Conditionally reprogrammed cells|2-D: Adherent|2-D: Suspension"
     },
     "histopathological_biomarkers":{
       "type":"array",
@@ -117,7 +117,9 @@
     "model_availability":{
       "type":"string",
       "chance":"date"
-    }
+    },
+    "model_url": {},
+    "model_files_url" : {}
   },
   "definitions": {
     "days": {
