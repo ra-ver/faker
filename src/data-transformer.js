@@ -38,7 +38,7 @@ export default class DataTransformer {
         // length is min 1 and max 2
         item.genes.gene_symbol.length == 1 ?
           item.name = item.genes.gene_symbol[0] :
-          item.name = item.genes.gene_symbol[0] - item.genes.gene_symbol[1];
+          item.name = item.genes.gene_symbol[0] + "-" + item.genes.gene_symbol[1];
       });
     });
   }

@@ -28,10 +28,10 @@ export default class SchemaFaker {
 
     constructor(schema) {
         // jsf.extend('faker', () => require('faker'));
-        // jsf.option({
-        //     resolveJsonPath: true,
-        //     alwaysFakeOptionals: true,
-        // });
+        jsf.option({
+            resolveJsonPath: true,
+            alwaysFakeOptionals: true,
+        });
         this.customizeFaker();
         return jsf(schema);
     }

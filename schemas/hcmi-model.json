@@ -37,26 +37,26 @@
     "histopathological_biomarkers": {
       "type": "array",
       "minItems": 2,
-      "items": [{
+      "items": {
         "type": "string",
         "pattern": "Stains|IHC|FISH"
-      }]
+      }
     },
     "sequencing_derived_somatic_variants": {
       "type": "array",
       "minItems": 2,
-      "items": [{
+      "items": {
         "type": "string",
         "pattern": "HUGO gene|Protein|BRAF V600E"
-      }]
+      }
     },
     "cancer_related_somatic_mutations": {
       "type": "array",
       "minItems": 2,
-      "items": [{
+      "items": {
         "type": "string",
         "pattern": "HUGO gene|Protein|BRAF V600E"
-      }]
+      }
     },
     "molecular_characterization": {
       "type": "string",
@@ -93,10 +93,10 @@
     "therapies": {
       "type": "array",
       "minItems": 2,
-      "items": [{
+      "items": {
         "type": "string",
         "pattern": "Surgery|Cytotoxic chemotherapy|Targeted therapy (small molecule inhibitors and targeted antibodies)|Immunotherapy (cellular and immune checkpoint)|Hormonal therapy|Radiation therapy|Other|None"
-      }]
+      }
     },
     "list_of_chemo_drugs_available": {
       "type": "string",
@@ -148,10 +148,10 @@
         "histopathological_biomarkers": {
           "type": "array",
           "minItems": 2,
-          "items": [{
+          "items": {
             "type": "string",
             "pattern": "EWSR1-PBX1|EWSR1-ZNF444|EWSR1-POU5F1|CD99 positive|RET rearranged|PTEN negative"
-          }]
+          }
         }
       }
     },
@@ -174,7 +174,7 @@
     "files": {
       "type": "array",
       "minItems": 1,
-      "items": [{
+      "items": {
         "type": "object",
         "properties": {
           "file_name": {
@@ -186,7 +186,7 @@
             "pattern": "bam|cram|vcf"
           }
         }
-      }]
+      }
     },
     "growth_rate": {
       "$ref": "#/definitions/growthRate"
@@ -230,7 +230,7 @@
     "variants": {
       "type": "array",
       "minItems": 5,
-      "items": [{
+      "items": {
         "type": "object",
         "properties": {
           "category": {
@@ -255,12 +255,12 @@
             "properties": {
               "gene_symbol": {
                 "type": "array",
-                "minItems": 2,
+                "minItems": 1,
                 "maxItems": 2,
-                "items": [{
+                "items": {
                   "type": "string",
                   "pattern": "BRAF|BCOR|SWST|ETV1|RET|PAX3|PAX7|FOX01|PBX1|FUS|BRAF|KRAS|TP53|EGFR|H3|H3_1|MEDD1010|ALK|ELK|CDKN2A|PIK3CA|MET"
-                }]
+                }
               }
             }
           },
@@ -273,7 +273,7 @@
             "pattern": "SNV|Indel|Fusion"
           }
         }
-      }]
+      }
     }
   },
   "definitions": {
