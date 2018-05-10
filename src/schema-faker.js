@@ -1,4 +1,3 @@
-
 /**
  *
  * Copyright (c) 2017 The Ontario Institute for Cancer Research. All rights reserved.
@@ -25,19 +24,25 @@ import jsf from 'json-schema-faker'
 /*
     Customized json-schema-faker
  */
-export default class SchemaFaker{
-    constructor(schema){
+export default class SchemaFaker {
+
+    constructor(schema) {
+        jsf.extend('faker', () => require('faker'));
+        jsf.option({
+            resolveJsonPath: true,
+            alwaysFakeOptionals: true,
+        });
         this.customizeFaker();
         return jsf(schema);
     }
-    customizeFaker(){
-        jsf.format('md5', function(gen, schema) {
+    customizeFaker() {
+        jsf.format('md5', function (gen, schema) {
             return gen.randexp('^[a-f0-9]{32}$');
         });
-        jsf.format('accession', function(gen, schema) {
+        jsf.format('accession', function (gen, schema) {
             return gen.randexp('^[a-z]{3}[0]{5}[0-9]{1}\.(v)[0-9]{2}\.(p)[0-1]{2}$');
         });
-        jsf.format('datasetname', function(gen, schema) {
+        jsf.format('datasetname', function (gen, schema) {
             return gen.randexp('^[A-Z]\\w*(_)*[A-Za-z]\\w*(_)*[A-Za-z]$');
         });
     }

@@ -25,7 +25,7 @@ let schemas = schemaLister.list('./schemas');
 Object.entries(schemas).forEach(([key, item]) => {
   try {
     // handle a specific schema
-    if (key !== 'es-file-model.json') return;
+    if (key !== 'hcmi-model.json') return;
 
     logger.info('Generating fake values for schema: ' + key);
 

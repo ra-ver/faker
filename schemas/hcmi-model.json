@@ -5,71 +5,78 @@
       "type": "string",
       "pattern": "[A-Z]{4}-[a-z]{4}"
     },
+    "age_at_aquisition": {
+      "$ref": "#/definitions/age"
+    },
     "age_at_diagnosis": {
-      "$ref" : "#/definitions/age"
+      "$ref": "#/definitions/age"
+    },
+    "chemotherapeutic_drug_list_available": {
+      "type": "string",
+      "pattern": "Y|N"
     },
     "age_at_sampling": {
-      "$ref" : "#/definitions/age"
+      "$ref": "#/definitions/age"
     },
     "gender": {
-      "type":"string",
-      "pattern":"Female|Male|Unspecified|Unknown"
+      "type": "string",
+      "pattern": "Female|Male|Unspecified|Unknown"
     },
     "race": {
-      "type":"string",
-      "pattern":" American Indian or Alaskan Native|Asian|Black or African American|Native Hawaiian or other Pacific Islander|White|Not Reported|Unknown"
-    },
-    "model_image":{
       "type": "string",
-      "chance" : "url"
+      "pattern": " American Indian or Alaskan Native|Asian|Black or African American|Native Hawaiian or other Pacific Islander|White|Not Reported|Unknown"
     },
-    "model_type":{
-      "type":"string",
-      "pattern":"3-D: Organoid|3-D: Other|2-D: Conditionally reprogrammed cells|2-D: Adherent|2-D: Suspension"
+    "model_image": {
+      "type": "string",
+      "chance": "url"
     },
-    "histopathological_biomarkers":{
-      "type":"array",
-      "minItems":2,
-      "items":[{
-        "type":"string",
-        "pattern":"Stains|IHC|FISH"
+    "type": {
+      "type": "string",
+      "pattern": "3-D: Organoid|3-D: Other|2-D: Conditionally reprogrammed cells|2-D: Adherent|2-D: Suspension"
+    },
+    "histopathological_biomarkers": {
+      "type": "array",
+      "minItems": 2,
+      "items": [{
+        "type": "string",
+        "pattern": "Stains|IHC|FISH"
       }]
     },
-    "sequencing_derived_somatic_variants":{
-      "type" : "array",
-      "minItems":2,
-      "items" : [{
-        "type":"string",
-        "pattern":"HUGO gene|Protein|BRAF V600E"
+    "sequencing_derived_somatic_variants": {
+      "type": "array",
+      "minItems": 2,
+      "items": [{
+        "type": "string",
+        "pattern": "HUGO gene|Protein|BRAF V600E"
       }]
     },
-    "cancer_related_somatic_mutations":{
-      "type" : "array",
-      "minItems":2,
-      "items" : [{
-        "type":"string",
-        "pattern":"HUGO gene|Protein|BRAF V600E"
+    "cancer_related_somatic_mutations": {
+      "type": "array",
+      "minItems": 2,
+      "items": [{
+        "type": "string",
+        "pattern": "HUGO gene|Protein|BRAF V600E"
       }]
     },
-    "molecular_characterization":{
-      "type":"string",
-      "pattern":"Whole Genome Sequencing (WGS) of parent tumor|WGS of normal|WGS of Model|Whole Exome Sequencing (WXS) of parent tumor|WXS of normal|WXS of model|Targeted sequencing of parent tumor|Targeted sequencing of normal|Targeted sequencing of model|RNA-seq of parent tumor|RNA-seq of model"
+    "molecular_characterization": {
+      "type": "string",
+      "pattern": "Whole Genome Sequencing (WGS) of parent tumor|WGS of normal|WGS of Model|Whole Exome Sequencing (WXS) of parent tumor|WXS of normal|WXS of model|Targeted sequencing of parent tumor|Targeted sequencing of normal|Targeted sequencing of model|RNA-seq of parent tumor|RNA-seq of model"
     },
-    "primary_site":{
-      "type":"string",
-      "pattern" : "Adrenal Gland|Bile Duct|Bladder|Blood|Bone|Bone Marrow|Brain|Breast|Cervix|Colorectal|Esophagus|Eye|Head and Neck|Kidney|Liver|Lung|Lymph Nodes|Nervous System|Ovary|Pancreas|Pleura|Prostate|Skin|Soft Tissue|Stomach|Testis|Thymus|Thyroid|Uter"
+    "primary_site": {
+      "type": "string",
+      "pattern": "Adrenal Gland|Bile Duct|Bladder|Blood|Bone|Bone Marrow|Brain|Breast|Cervix|Colorectal|Esophagus|Eye|Head and Neck|Kidney|Liver|Lung|Lymph Nodes|Nervous System|Ovary|Pancreas|Pleura|Prostate|Skin|Soft Tissue|Stomach|Testis|Thymus|Thyroid|Uter"
     },
-    "sample_acquisition_site":{
-      "type":"string",
-      "pattern" : "Adrenal Gland|Bile Duct|Bladder|Blood|Bone|Bone Marrow|Brain|Breast|Cervix|Colorectal|Esophagus|Eye|Head and Neck|Kidney|Liver|Lung|Lymph Nodes|Nervous System|Ovary|Pancreas|Pleura|Prostate|Skin|Soft Tissue|Stomach|Testis|Thymus|Thyroid|Uter"
+    "sample_acquisition_site": {
+      "type": "string",
+      "pattern": "Adrenal Gland|Bile Duct|Bladder|Blood|Bone|Bone Marrow|Brain|Breast|Cervix|Colorectal|Esophagus|Eye|Head and Neck|Kidney|Liver|Lung|Lymph Nodes|Nervous System|Ovary|Pancreas|Pleura|Prostate|Skin|Soft Tissue|Stomach|Testis|Thymus|Thyroid|Uter"
     },
-    "histological_type":{
-      "type":"string",
+    "histological_type": {
+      "type": "string",
       "pattern": "Adenocarcinoma|Conventional leiomyosarcoma|Cystadenocarcinoma|Infiltrating Carcinoma NOS|Infiltrating Lobular|Mixed Histology|Muscle invasive urothelial carcinoma|Papillary renal cell carcinoma|Poorly differentiated/ pleomorphic/ epithelioid leiomyosarcoma|Serous Cystadenocarcinoma|Squamous cell carcinoma|Well-differentiated leiomyosarcoma (resembling leiomyoma)"
     },
-    "clinical_stage":{
-      "type":"string",
-      "pattern" : "1|2|3|4|T1c|IIB|IIC|4A|I|II|Stage1|CT4aN1"
+    "clinical_stage": {
+      "type": "string",
+      "pattern": "1|2|3|4|T1c|IIB|IIC|4A|I|II|Stage1|CT4aN1"
     },
     "tumor_histological_grade": {
       "type": "string",
@@ -79,54 +86,200 @@
       "type": "string",
       "pattern": "T0|T1|T2|T3|T4|T5|N0|N1|N2|N3N4|M0|M1|M2"
     },
-    "neoadjuvant_therapy":{
-      "type":"string",
-      "pattern":"Y|N"
+    "neoadjuvant_therapy": {
+      "type": "string",
+      "pattern": "Y|N"
     },
-    "therapies":{
-      "type":"array",
-      "minItems":2,
-      "items":[{
-        "type":"string",
-        "pattern":"Surgery|Cytotoxic chemotherapy|Targeted therapy (small molecule inhibitors and targeted antibodies)|Immunotherapy (cellular and immune checkpoint)|Hormonal therapy|Radiation therapy|Other|None"
+    "therapies": {
+      "type": "array",
+      "minItems": 2,
+      "items": [{
+        "type": "string",
+        "pattern": "Surgery|Cytotoxic chemotherapy|Targeted therapy (small molecule inhibitors and targeted antibodies)|Immunotherapy (cellular and immune checkpoint)|Hormonal therapy|Radiation therapy|Other|None"
       }]
     },
-    "list_of_chemo_drugs_available":{
-      "type":"string",
-      "pattern":"Y|N"
+    "list_of_chemo_drugs_available": {
+      "type": "string",
+      "pattern": "Y|N"
     },
-    "vital_status":{
-      "type":"string",
-      "pattern":"Alive|Deceased|Unknown / lost to followup"
+    "vital_status": {
+      "type": "string",
+      "pattern": "Alive|Deceased|Unknown / lost to followup"
     },
-    "disease_status_at_unlinking":{
-      "type":"string",
-      "pattern":"Disease Free|Progression (no response to treatment)|Relapse (patient responded to treatment)|Unknonwn / lost to followup"
+    "disease_status_at_unlinking": {
+      "type": "string",
+      "pattern": "Disease Free|Progression (no response to treatment)|Relapse (patient responded to treatment)|Unknonwn / lost to followup"
     },
-    "model_growth_rate":{
-      "$ref" : "#/definitions/days"
+    "split_ratio": {
+      "type": "string",
+      "pattern": "1:2|1:4|1:8"
     },
-    "split_ratio":{
-      "type":"string",
-      "pattern":"1:2|1:4|1:8"
+    "third_party_licensing_requirement": {
+      "type": "string",
+      "pattern": "Yes|No"
     },
-    "third_party_licensing_requirement":{
-      "type":"string",
-      "pattern":"Yes|No"
+    "model_availability": {
+      "type": "string",
+      "chance": "date"
     },
-    "model_availability":{
-      "type":"string",
-      "chance":"date"
+    "clinical_diagnosis": {
+      "type": "object",
+      "properties": {
+        "aquisition_site": {
+          "type": "string",
+          "pattern": "Pancreatic head|Liver|Kidney|lung|Other|Brain"
+        },
+        "clinical_stage_grouping": {
+          "type": "string",
+          "pattern": "Stage I|Stage IA|Stage IB|Stage IIA|Stage IIB|Stage III|Stage IV"
+        },
+        "clinical_tumor_diagnosis": {
+          "type": "string",
+          "pattern": "Esophageous|Pancreas|Neuroblastoma|Wilms Tumor|Ewing Sarcoma|Glioblastoma"
+        },
+        "histologcal_grade": {
+          "type": "string",
+          "pattern": "1|2|3|4"
+        },
+        "histological_type": {
+          "type": "string",
+          "pattern": "Favorable|Unfavorable|Unknown"
+        },
+        "histopathological_biomarkers": {
+          "type": "array",
+          "minItems": 2,
+          "items": [{
+            "type": "string",
+            "pattern": "EWSR1-PBX1|EWSR1-ZNF444|EWSR1-POU5F1|CD99 positive|RET rearranged|PTEN negative"
+          }]
+        }
+      }
     },
-    "model_url": {},
-    "model_files_url" : {}
+    "date_created": {
+      "type": "string",
+      "faker": "date.past"
+    },
+    "date_of_availability": {
+      "type": "string",
+      "faker": "date.past"
+    },
+    "date_updated": {
+      "type": "string",
+      "faker": "date.past"
+    },
+    "disease_status": {
+      "type": "string",
+      "pattern": "Disease Free|Progression (no response to treatment)|Relapse (patient responded to treatment)|Unknown / lost to followup"
+    },
+    "files": {
+      "type": "array",
+      "minItems": 1,
+      "items": [{
+        "type": "object",
+        "properties": {
+          "file_name": {
+            "type": "string",
+            "pattern": "[a-z]{4}.[a-z]{6}.[0-9]{4}.[a-z]{3}"
+          },
+          "file_type": {
+            "type": "string",
+            "pattern": "bam|cram|vcf"
+          }
+        }
+      }]
+    },
+    "growth_rate": {
+      "$ref": "#/definitions/growthRate"
+    },
+    "licensing_required": {
+      "type": "string",
+      "pattern": "Yes|No"
+    },
+    "molecular_characterizations": {
+      "type": "string",
+      "pattern": "Whole Genome Sequencing (WGS) of parent tumor|WGS of normal|WGS of Model|Whole Exome Sequencing (WXS) of parent tumor|WXS of normal|WXS of model|Targeted sequencing of parent tumor|Targeted sequencing of normal|Targeted sequencing of model|RNA-seq of parent tumor|RNA-seq of model"
+    },
+    "source": {
+      "type": "string",
+      "pattern": "GDC|EGA"
+    },
+    "source_model_url": {
+      "type": "string",
+      "pattern": "https://portal.gdc.cancer.gov/cases/4abbd258-0f0c-4428-901d-625d47ad363a"
+    },
+    "source_sequence_url": {
+      "type": "string",
+      "pattern": "https://portal.gdc.cancer.gov/repository?facetTab=cases&filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22cases.case_id%22%2C%22value%22%3A%5B%2230bc72d5-07b5-48d2-b025-bba9bcf2f09f%22%5D%7D%7D%5D%7D"
+    },
+    "therapy": {
+      "type": "string",
+      "pattern": "Targeted therapy (small molecule inhibitors and targeted antibodies)|Immunotherapy (cellular and immune checkpoint)|Hormonal therapy|Radiation therapy|Other|None"
+    },
+    "tnm_stage_m": {
+      "type": "string",
+      "pattern": "M0|M1|M2"
+    },
+    "tnm_stage_n": {
+      "type": "string",
+      "pattern": "N0|N1|N2|N3|N4"
+    },
+    "tnm_state_t": {
+      "type": "string",
+      "pattern": "T0|T1|T2"
+    },
+    "variants": {
+      "type": "array",
+      "minItems": 5,
+      "items": [{
+        "type": "object",
+        "properties": {
+          "category": {
+            "type": "string",
+            "pattern": "Clinical Sequencing|Genomic Sequencing|Histopathological Sequencing"
+          },
+          "external_db_ids": {
+            "type": "object",
+            "properties": {
+              "civic": {
+                "type": "string",
+                "pattern": "[0-9]{4}"
+              },
+              "cosmic": {
+                "type": "string",
+                "chance": "guid"
+              }
+            }
+          },
+          "genes": {
+            "properties": {
+              "gene_symbol": {
+                "type": "array",
+                "minItems": 1,
+                "items": [{
+                  "type": "string",
+                  "pattern": "BRAF|BCOR|SWST|ETV1|RET|PAX3|PAX&|FOX01|PBX1|FUS|BRAF|KRAS|TP53|EGFR|H3.|H3.1|MEDD1010|ALK|ELK|CDKN2A,PIK3CA|MET"
+                }]
+              }
+            }
+          },
+          "name": {
+            "type": "string",
+            "faker": ["#{gene_symbol[0]}", "-", "#{gene_symbol[1]}"]
+          },
+          "type": {
+            "type": "string",
+            "pattern": "SNV|Indel|Fusion"
+          }
+        }
+      }]
+    }
   },
   "definitions": {
     "days": {
-    "type": "integer",
-    "minimum": 10,
-    "maximum": 10950,
-    "exclusiveMinimum": true
+      "type": "integer",
+      "minimum": 10,
+      "maximum": 10950,
+      "exclusiveMinimum": true
     },
     "daysToBirth": {
       "type": "integer",
@@ -139,6 +292,12 @@
       "minimum": 20,
       "maximum": 100,
       "exclusiveMinimum": true
+    },
+    "growthRate": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 90,
+      "exclusiveMinimum": false
     }
   }
 }
