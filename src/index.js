@@ -4,6 +4,7 @@ import SchemaLister from './list-schemas';
 import SchemaFaker from './schema-faker';
 import SchemaTransformer from './schema-transformer';
 import DataExporter from './export-data';
+import DataTransformer from './data-transformer';
 
 const tsFormat = () => new Date().toISOString();
 
@@ -29,9 +30,10 @@ Object.entries(schemas).forEach(([key, item]) => {
 
     logger.info('Generating fake values for schema: ' + key);
 
-    let transformer = new SchemaTransformer(logger);
+    // schema transformer
+    let schemaTransformer = new SchemaTransformer(logger);
 
-    transformer.transform(item);
+    schemaTransformer.transform(item);
 
     let output = [];
     // generate 5000 data points
@@ -39,6 +41,10 @@ Object.entries(schemas).forEach(([key, item]) => {
       let dataPoint = new SchemaFaker(item);
       output.push(dataPoint);
     }
+
+    // data transformer
+    let dataTransformer = new DataTransformer(logger);
+    dataTransformer.addReferentialIntegrity(output);
 
     let exporter = new DataExporter(logger);
     exporter.writeToES(output);
