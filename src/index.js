@@ -46,8 +46,11 @@ Object.entries(schemas).forEach(([key, item]) => {
     let dataTransformer = new DataTransformer(logger);
     dataTransformer.addReferentialIntegrity(output);
 
+    let childCentricOutput = dataTransformer.transformParentChildRelation(output);
+
     let exporter = new DataExporter(logger);
     exporter.writeToES(output);
+    exporter.writeToES(childCentricOutput);
   } catch (err) {
     logger.error(`Error processing schema for : ${key}. Details: ${err}`);
   }

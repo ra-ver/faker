@@ -251,21 +251,22 @@
             }
           },
           "genes": {
+            "type": "object",
             "properties": {
               "gene_symbol": {
                 "type": "array",
-                "minItems": 1,
+                "minItems": 2,
                 "maxItems": 2,
                 "items": [{
                   "type": "string",
-                  "pattern": "BRAF|BCOR|SWST|ETV1|RET|PAX3|PAX&|FOX01|PBX1|FUS|BRAF|KRAS|TP53|EGFR|H3.|H3.1|MEDD1010|ALK|ELK|CDKN2A,PIK3CA|MET"
+                  "pattern": "BRAF|BCOR|SWST|ETV1|RET|PAX3|PAX7|FOX01|PBX1|FUS|BRAF|KRAS|TP53|EGFR|H3|H3_1|MEDD1010|ALK|ELK|CDKN2A|PIK3CA|MET"
                 }]
               }
             }
           },
           "name": {
             "type": "string",
-            "faker": ["#{genes.gene_symbol[0]}", "-", "#{genes.gene_symbol[1]}"]
+            "pattern": "placeholder"
           },
           "type": {
             "type": "string",

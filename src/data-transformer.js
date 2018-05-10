@@ -43,4 +43,21 @@ export default class DataTransformer {
     });
   }
 
+  /*
+    Transforms parent->children to child->parents by filtering whole data
+  */
+  transformParentChildRelation(data) {
+    return _.reduce(data, (variants, model, key) => {
+      // iterate over each model
+      _.each(model.variants, (variant) => {
+        // check if variant is already available in result
+        let outputVariant = _.filter(variants, ['name', variant.name]);
+        outputVariant = outputVariant.length == 0 ? (variants.push(variant), variant) : outputVariant[0];
+        // add current model to variant's model collection
+        // remove model's variants prop before adding model as a child
+        (outputVariant.models || (outputVariant.models = [])).push(_.omit(model, ['variants']));
+      })
+      return variants;
+    }, []);
+  }
 }
