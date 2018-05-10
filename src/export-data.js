@@ -57,8 +57,7 @@ export default class DataExporter {
   }
   writeToES(data) {
     let body = _.flattenDeep(
-      data.map(item => [
-        {
+      data.map(item => [{
           index: {
             _index: process.env.ES_INDEX,
             _type: process.env.ES_TYPE,
@@ -68,8 +67,27 @@ export default class DataExporter {
         item,
       ]),
     );
-
-    es.bulk({ body });
+    es.bulk({
+      body
+    });
     this.logger.info(`Exported ${data.length} records to :${process.env.ES_HOST}/${process.env.ES_INDEX}/${process.env.ES_TYPE}`);
+  }
+
+  writeVariantsToES(data) {
+    let body = _.flattenDeep(
+      data.map(item => [{
+          index: {
+            _index: process.env.ES_VARIANT_INDEX,
+            _type: process.env.ES_VARIANT_TYPE,
+            _id: uuid(),
+          },
+        },
+        item,
+      ]),
+    );
+    es.bulk({
+      body
+    });
+    this.logger.info(`Exported ${data.length} records to :${process.env.ES_HOST}/${process.env.ES_VARIANT_INDEX}/${process.env.ES_VARIANT_TYPE}`);
   }
 }

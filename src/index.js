@@ -50,7 +50,7 @@ Object.entries(schemas).forEach(([key, item]) => {
 
     let exporter = new DataExporter(logger);
     exporter.writeToES(output);
-    exporter.writeToES(childCentricOutput);
+    exporter.writeVariantsToES(childCentricOutput);
   } catch (err) {
     logger.error(`Error processing schema for : ${key}. Details: ${err}`);
   }
