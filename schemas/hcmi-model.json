@@ -12,8 +12,7 @@
       "$ref": "#/definitions/age"
     },
     "chemotherapeutic_drug_list_available": {
-      "type": "string",
-      "pattern": "Y|N"
+      "type": "boolean"
     },
     "gender": {
       "type": "string",
@@ -78,15 +77,15 @@
     },
     "date_created": {
       "type": "string",
-      "faker": "date.past"
+      "pattern": "2018-01-01 10:00:00|2018-02-01 10:00:00|2018-01-03 10:00:00|2018-02-20 10:00:00|2018-03-01 10:00:00|2018-03-03 10:00:00|2018-02-02 10:00:00|2018-02-10 10:00:00"
     },
     "date_of_availability": {
       "type": "string",
-      "faker": "date.past"
+      "pattern": "2018-06-06 10:00:00"
     },
     "date_updated": {
       "type": "string",
-      "faker": "date.past"
+      "pattern": "2018-04-01 10:00:00|2018-05-01 10:00:00|2018-04-03 10:00:00|2018-05-20 10:00:00|2018-04-01 10:00:00|2018-05-05 10:00:00|2018-05-02 10:00:00|2018-05-10 10:00:00"
     },
     "disease_status": {
       "type": "string",
@@ -100,11 +99,11 @@
         "properties": {
           "file_name": {
             "type": "string",
-            "pattern": "[a-z]{4}.[a-z]{6}.[0-9]{4}.[a-z]{3}"
+            "pattern": "imagefile"
           },
           "file_type": {
             "type": "string",
-            "pattern": "bam|cram|vcf"
+            "pattern": "image"
           }
         }
       }
@@ -113,8 +112,7 @@
       "$ref": "#/definitions/growthRate"
     },
     "licensing_required": {
-      "type": "string",
-      "pattern": "Yes|No"
+      "type": "boolean"
     },
     "molecular_characterizations": {
       "type": "string",
